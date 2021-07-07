@@ -26,6 +26,8 @@ function prepareProducts(productList) {
             mainMealProduct.push(productList[i]);
         }else if(productList[i].category === "dessert"){
             dessertProduct.push(productList[i]);
+        }else if(productList[i].category === "snakes"){
+            snakesProduct.push(productList[i]);
         }
     }
 
@@ -55,6 +57,8 @@ function displayProduct(category) {
          product = mainMealProduct;
     }else if(category === 'dessert'){
         product = dessertProduct;
+    }else if(category === 'snakes'){
+        product = snakesProduct;
     }
     $(".main-product-container").html('');
     for (i = 0; i < product.length; i++) {
