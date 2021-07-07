@@ -9,3 +9,7 @@
 .product-category{
     color: gray;
 }
+
+#invalid-price-info{
+    display: none;
+}
