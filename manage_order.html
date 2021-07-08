@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KFC Home Page</title>
+  <!--    dependency for bootstrap 5 and jquery 3.6 -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src = "./jquery/jquery-3.6.0.min.js"></script>
+  <!--  <script src="js/index.js"></script>-->
+  <script>
+    $(function(){
+      $(".hfc-nav-bar").load("common/navbar.html");
+    });
+  </script>
+</head>
+
+<body>
+<div class="hfc-nav-bar">
+</div>
+<div class="side-nav">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-auto bg-light sticky-top">
+        <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+          <a href="manage_product.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+            食物管理
+          </a>
+          <a href="manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" title="">
+            订单管理
+          </a>
+          <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category">
+            员工管理
+          </a>
+          <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category">
+            销售数据
+          </a>
+        </div>
+      </div>
+      <div class="col-sm p-3 min-vh-100">
+        <div class="product-container" >
+          <h4 style="font-size:48px">订单管理 ☎️🖨🗒✏️🔖
+          </h4>
+          <table border="1" cellpadding="10" width="1250" frame="hsides">
+            <tr>
+              <th width="250">订单号</th>
+              <th width="250">顾客名称</th>
+              <th width="250">订单类型</th>
+              <th width="250">订单状态</th>
+              <th width="250">查看订单详情</th>
+            </tr>
+            <tr>
+              <td>ORGDO000001</td>
+              <td>小王</td>
+              <td>商品订单</td>
+              <td>已完成</td>
+              <td>
+                <a>
+                  <button class="btn btn-success waves-effect waves-light" >查看详情</button>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>ORGDO000002</td>
+              <td>小桐</td>
+              <td>兑换订单</td>
+              <td>正在进行</td>
+              <td>
+                <a>
+                  <button class="btn btn-success waves-effect waves-light" >查看详情</button>
+                </a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

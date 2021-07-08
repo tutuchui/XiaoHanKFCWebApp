@@ -1,6 +1,7 @@
 var mainMealProduct = [];
 var dessertProduct = [];
 var snakesProduct = [];
+var friesChicken = [];
 
 var productCountMap = new Map();
 $(document).ready(function () {
@@ -28,6 +29,8 @@ function prepareProducts(productList) {
             dessertProduct.push(productList[i]);
         }else if(productList[i].category === "snakes"){
             snakesProduct.push(productList[i]);
+        }else if(productList[i].category === "friesChicken"){
+            friesChicken.push(productList[i]);
         }
     }
 
@@ -59,6 +62,8 @@ function displayProduct(category) {
         product = dessertProduct;
     }else if(category === 'snakes'){
         product = snakesProduct;
+    }else if (category === 'friesChicken'){
+        product = friesChicken;
     }
     $(".main-product-container").html('');
     for (i = 0; i < product.length; i++) {
@@ -75,5 +80,6 @@ function displayProduct(category) {
             '</div>'
         $(".main-product-container").append(productHtml);
     }
+
 
 }
