@@ -1,0 +1,30 @@
+.register-form-container{
+    border: 1px solid #d3d3d4;
+    border-radius: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 100px;
+}
+
+.brand-container{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.input-box-container{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+}
+
+.login-btn-container{
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.login-btn{
+    background-color: #95bf48;
+    border: #95bf48;
+}

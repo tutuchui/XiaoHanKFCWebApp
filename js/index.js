@@ -80,6 +80,4 @@ function displayProduct(category) {
             '</div>'
         $(".main-product-container").append(productHtml);
     }
-
-
 }

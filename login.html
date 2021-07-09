@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/login.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src = "./jquery/jquery-3.6.0.min.js"></script>
+    <script src ="js/login.js"></script>
     <script>
         $(function(){
             $(".hfc-nav-bar").load("common/navbar.html");
@@ -23,13 +24,13 @@
             <img src="images/logo.png" width="200" height="75">
         </div>
         <div class="input-box-container">
-            <input type="text" class="form-control" placeholder="清输入用户名">
+            <input type="text" class="form-control" id="number" placeholder="清输入用户名">
         </div>
         <div class="input-box-container">
-            <input type="password" class="form-control" placeholder="请输入密码">
+            <input type="password" class="form-control" id="password" placeholder="请输入密码">
         </div>
         <div class="login-btn-container">
-            <button class="btn btn-primary login-btn">登录</button>
+            <button class="btn btn-primary login-btn" onclick="login()">登录</button>
         </div>
     </div>
 </body>
