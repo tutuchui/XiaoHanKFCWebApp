@@ -13,7 +13,7 @@ function readURL(input) {
         }
         reader.readAsDataURL(input.files[0]);
     }
-}P
+}
 
 function uploadProduct(){
     var isValidInput = true;

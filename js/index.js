@@ -76,6 +76,9 @@ function displayProduct(category) {
                     '<button class="btn btn-danger" onclick="addProduct(this)" value=' + 'product' +product[i].id + '><i class="bi bi-plus"></i></button>' +
                     '&nbsp;<span id=' + 'product' + product[i].id + '-count' + '>'+ productCountMap.get('product' + product[i].id) + '</span>&nbsp;' +
                     '<button class="btn btn-secondary" onclick="minusProduct(this)" value=' + 'product'+product[i].id + '><i class="bi bi-dash"></i></button>' +
+                    ' <div class="login-btn-container">\n' +
+            '            <button class="btn btn-primary login-btn" onclick="showDetail(' + product[i].id + ')">显示详情</button>\n' +
+            '        </div>'
                 '</div>' +
             '</div>'
         $(".main-product-container").append(productHtml);
