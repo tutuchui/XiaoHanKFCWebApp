@@ -1,3 +1,10 @@
+$(document).ready(function () {
+    if(window.sessionStorage.getItem('name') !== undefined){
+        window.sessionStorage.removeItem('name');
+        window.sessionStorage.removeItem('phone');
+        window.sessionStorage.removeItem('customerIsLogin');
+    }
+})
 function login(){
     var phone = $("#phone").val();
     var password = $("#password").val();

@@ -103,8 +103,8 @@ function submitOrder() {
             'Access-Control-Allow-Origin': "http://localhost:8080"
         },
         success:function (data) {
-            if(data === "SUCCESS"){
-
+            if(data === "Success"){
+                $(location).attr('href','/orderHistory');
             }
         },
         async:false

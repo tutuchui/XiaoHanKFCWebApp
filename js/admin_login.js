@@ -1,3 +1,10 @@
+$(document).ready(function () {
+    if(window.sessionStorage.getItem('name') !== undefined){
+        window.sessionStorage.removeItem('name');
+        window.sessionStorage.removeItem('number');
+        window.sessionStorage.removeItem('adminIsLogin');
+    }
+})
 function ToCustomerLogin()
 {
     $(location).attr('href','/login');
