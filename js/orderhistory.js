@@ -54,7 +54,7 @@ function displayData(orderData) {
             '<td>' + paymentStatus + '</td>' +
             '<td>' + orderStatus + '</td>' +
             '<td>' + curOrder.orderDate + '</td>' +
-            '<td> <button class="btn btn-secondary" onclick="directToDetail(' + curOrder.orderId + ')">查看详情</button></td>' +
+            '<td> <button class="btn btn-secondary" onclick="directToDetail(' +  "'" + curOrder.orderId + "'" + ')">查看详情</button></td>' +
             paymentButton +
             '</tr>'
         )
