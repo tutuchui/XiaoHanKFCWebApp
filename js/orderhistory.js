@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    if(window.sessionStorage.getItem('customerIsLogin') !== 'true'){
+        $(location).attr('href','/login');
+    }
+
     $.ajax({
         url: "http://localhost:8080/getOrderByCustomer?phone=" + window.sessionStorage.getItem('phone'),
         type: "GET",

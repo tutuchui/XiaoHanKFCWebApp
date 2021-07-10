@@ -1,6 +1,10 @@
 var Employee = [];
 var employeeCountMap = new Map();
 $(document).ready(function () {
+    if(window.sessionStorage.getItem('adminIsLogin') !== 'true'){
+        $(location).attr('href','/adminLogin');
+    }
+
     $.ajax({
         url: "http://localhost:8080/getAllEmployee",
         type: "GET",

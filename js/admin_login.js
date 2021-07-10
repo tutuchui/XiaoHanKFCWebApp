@@ -26,8 +26,8 @@ function login(){
         success: function (data) {
             window.sessionStorage.setItem('number', number);
             window.sessionStorage.setItem('name', data);
-            window.sessionStorage.setItem('isLogin', "true");
-            $(location).attr('href','/admin-index');
+            window.sessionStorage.setItem('adminIsLogin', "true");
+            $(location).attr('href','/adminIndex');
         },
         error: function (xhr, status, errorMessage) {
             if(status === 501){

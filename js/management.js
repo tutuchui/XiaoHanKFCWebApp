@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    if(window.sessionStorage.getItem('adminIsLogin') !== 'true'){
+        $(location).attr('href','/adminLogin');
+    }
     $("#image-file").change(function () {
         readURL(this);
     })

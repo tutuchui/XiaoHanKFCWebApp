@@ -14,6 +14,9 @@
   <script>
     $(function(){
       $(".hfc-nav-bar").load("common/navbarForAdmin.html");
+      if(window.sessionStorage.getItem('adminIsLogin') !== 'true'){
+        $(location).attr('href','/adminLogin');
+      }
     });
   </script>
 </head>

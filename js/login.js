@@ -16,7 +16,7 @@ function login(){
         success: function (data) {
                 window.sessionStorage.setItem('phone', phone);
                 window.sessionStorage.setItem('name', data);
-                window.sessionStorage.setItem('isLogin', "true");
+                window.sessionStorage.setItem('customerIsLogin', "true");
                 $(location).attr('href','/index');
         },
         error: function (xhr, status, errorMessage) {
@@ -33,5 +33,5 @@ function login(){
 
 function ToAdminLogin()
 {
-    $(location).attr('href','/admin_login');
+    $(location).attr('href','/adminLogin');
 }

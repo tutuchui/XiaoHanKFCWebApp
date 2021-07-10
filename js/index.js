@@ -7,6 +7,10 @@ var productCountMap = new Map();
 var productIdMap = new Map();
 $(document).ready(function () {
 
+    if(window.sessionStorage.getItem('customerIsLogin') !== 'true'){
+            $(location).attr('href','/login');
+    }
+
     $.ajax({
         url: "http://localhost:8080/getAllProducts",
         type: "GET",
@@ -82,6 +86,7 @@ function submitOrder() {
             orderProduct['productName'] = curProduct.name;
             orderProduct['productCount'] = productCountMap.get(key);
             orderProduct['customerId'] = window.sessionStorage.getItem('phone');
+            orderProduct['customerName'] = window.sessionStorage.getItem('name');
             orderProduct['productId'] = curProduct.id;
             orderProduct['price'] = curProduct.price * productCountMap.get(key);
             orderProductList.push(orderProduct);

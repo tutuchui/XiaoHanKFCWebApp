@@ -1,4 +1,9 @@
 $(document).ready(function () {
+
+    if(window.sessionStorage.getItem('customerIsLogin') !== 'true'){
+        $(location).attr('href','/login');
+    }
+
     const params = new URLSearchParams(location.search);
     $.ajax({
         url: "http://localhost:8080/getOrderDetailById?orderId=" + params.get('orderId'),
