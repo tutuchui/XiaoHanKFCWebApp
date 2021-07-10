@@ -37,9 +37,9 @@ function displayData(orderData) {
 
         var paymentButton;
         if(curOrder.paymentStatus === 0){
-            paymentButton = '<td> <button class="btn btn-danger"> 去支付</button></td>';
+            paymentButton = '<td> <button class="btn btn-danger" onclick="purchase(' +curOrder.orderId + ')"> 去支付</button></td>';
         }else{
-            paymentButton = '<td> <button class="btn btn-danger" disabled> 去支付</button></td>';
+            paymentButton = '<td> <button class="btn btn-danger" disabled onclick="purchase(' +curOrder.orderId + ')"> 去支付</button></td>';
         }
         $("#order_table_content").append(
             '<tr>\n' +
@@ -55,6 +55,29 @@ function displayData(orderData) {
             '</tr>'
         )
     }
+}
+
+function purchase(orderId){
+    var formData = new FormData();
+    formData.append("orderId",orderId);
+    $.ajax({
+        url:"http://localhost:8080/updatePaymentStatus",
+        type:"POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        header:{
+            'Acess-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            if(data === "Success"){
+                $(location).attr('href','/orderHistory');
+            }
+        },
+        error: function (xhr, status, errorMessage) {
+
+        }
+    })
 }
 
 function directToDetail(orderId) {
