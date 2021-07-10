@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src = "./jquery/jquery-3.6.0.min.js"></script>
-    <script src = "./js/login.js"></script>
+    <script src = "jquery/jquery-3.6.0.min.js"></script>
+    <script src = "js/login.js"></script>
     <script>
         $(function(){
             $(".hfc-nav-bar").load("common/navbar.html");
@@ -31,8 +31,9 @@
         </div>
         <div class="login-btn-container">
             <button class="btn btn-primary login-btn" onclick="login()">登录</button>
+            <button class="btn btn-primary login-btn" onclick="ToAdminLogin()">管理员登陆入口</button>
+            <button class="btn btn-primary login-btn" onclick="login()">员工登陆入口</button>
         </div>
-
        <div class="hint-message_container">
            <p class="hint-message">还没有账号？<a href="/register">点此注册</a></p>
        </div>

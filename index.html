@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/navbar.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src = "./jquery/jquery-3.6.0.min.js"></script>
+    <script src = "jquery/jquery-3.6.0.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/suggestion.js"></script>
     <script>
         $(function(){
             $(".hfc-nav-bar").load("common/navbar.html");
@@ -76,6 +77,28 @@
     </div>
 </body>
 <div class="alert alert-success" role="alert">
-    欢迎登陆Han-FC，如对服务有任何问题请在 <a href="#" class="alert-link">an example link</a>进行投诉建议。工作人员将在一年内对您的投诉建议进行反馈。
+    欢迎登陆Han-FC，如对服务有任何问题请在 <a href="login.html" class="alert-link" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">hahaha</a>进行投诉建议。工作人员将在一年内对您的投诉建议进行反馈。
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">建议投诉</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="content" class="col-form-label">内容:</label>
+                        <textarea class="form-control" id="content"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="suggest()">Send</button>
+            </div>
+        </div>
+    </div>
 </div>
 </html>

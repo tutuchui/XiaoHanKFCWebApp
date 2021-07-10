@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/navbar.css">
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src = "./jquery/jquery-3.6.0.min.js"></script>
+  <script src = "jquery/jquery-3.6.0.min.js"></script>
   <!--  <script src="js/index.js"></script>-->
   <script>
     $(function(){
-      $(".hfc-nav-bar").load("common/navbar.html");
+      $(".hfc-nav-bar").load("common/navbarForAdmin.html");
     });
   </script>
 </head>
@@ -25,16 +25,20 @@
     <div class="row">
       <div class="col-sm-auto bg-light sticky-top">
         <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
-          <a href="manage_product.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+          <a class="d-block p-3 link-dark text-decoration-none product-category" >
             食物管理
           </a>
-          <a href="manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" title="">
+          <nav class="nav nav-pills flex-column">
+            <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product.html">查看食物</a>
+            <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="management.html">上传食物</a>
+          </nav>
+          <a href="manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" >
             订单管理
           </a>
-          <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category">
+          <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category" >
             员工管理
           </a>
-          <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category">
+          <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category" >
             销售数据
           </a>
         </div>
