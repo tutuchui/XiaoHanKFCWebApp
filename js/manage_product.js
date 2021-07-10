@@ -35,11 +35,14 @@ function displayProduct() {
             '<img src="' + product[i].imageUrl + '" class="card-img-top hfc-card-image">' +
             '<div class="card-body">' +
             '<h5 class="card-title">' + product[i].name + '</h5>' +
-            '<button class="btn btn-danger" >查看详情</button>' +
+            "<button class='btn btn-danger' onclick='checkDetail(" + JSON.stringify(product[i]) + ")'>查看详情</button>" +
             '</div>' +
             '</div>'
         $(".main-product-container").append(productHtml);
     }
+}
 
-
+function checkDetail(product){
+    var url = '/modifyFood?productName=' + product.name + '&productId=' + product.id + "&imageUrl=" + product.imageUrl + "&price=" + product.price + "&introduction=" + product.introduction + "&category=" + product.category;
+    $(location).attr('href', url);
 }

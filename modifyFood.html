@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HANFC Management Page</title>
+    <!--    dependency for bootstrap 5 and jquery 3.6 -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/management.css">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src = "jquery/jquery-3.6.0.min.js"></script>
+    <script src="js/modifyFood.js"></script>
+    <script>
+        $(function(){
+            $(".hfc-nav-bar").load("common/navbarForAdmin.html");
+        });
+    </script>
+</head>
+
+<body>
+<div class="hfc-nav-bar">
+</div>
+<div class="side-nav">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-auto bg-light sticky-top">
+                <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                    <a class="d-block p-3 link-dark text-decoration-none product-category" >
+                        食物管理
+                    </a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product.html">查看食物</a>
+                        <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="management.html">上传食物</a>
+                    </nav>
+                    <a href="manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+                        订单管理
+                    </a>
+                    <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+                        员工管理
+                    </a>
+                    <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+                        销售数据
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm p-3 min-vh-100">
+                <div class="product-upload-container">
+                    <div class="product-upload-form">
+                        <div class = 'brand-container'>
+                            <img src="images/modify_food.png" width="240" height="67">
+                        </div>
+
+                        <div class="input-container">
+                            <div class="d-flex justify-content-around">
+                                <div class="left-form">
+                                    <div class="preview-image-container" style="width: 220px; height: 220px">
+                                        <img id="img-upload" width="220px" height="220px">
+                                    </div>
+                                </div>
+                                <div class="right-form">
+                                    <div class="input-box-container">
+                                        <input type="text" class="form-control" id="product-name" placeholder="食品名称">
+                                        <div class="invalid-feedback">
+                                            食品名称不能为空
+                                        </div>
+                                    </div>
+                                    <div class="input-box-container">
+                                        <input type="text" class="form-control" id="product-price" placeholder="食物单价">
+                                        <div class="invalid-feedback">
+                                            请提供一个合理的价格
+                                        </div>
+                                    </div>
+
+                                    <div class="input-box-container">
+                                        <select class="form-select" id="category" aria-label="食物类别">
+                                            <option value="mainMeal">主食</option>
+                                            <option value="dessert">甜点</option>
+                                            <option value="snakes">小食</option>
+                                            <option value="friesChicken">炸鸡</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-box-container">
+                                        <input type="file" class="form-control" id="image-file" accept="image/png, image/jpeg" aria-label="Upload">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="introduction-form">
+                                <textarea class="form-control" placeholder="食物简介" id="product-introduction" style="min-height: 140px"></textarea>
+                                <div class="invalid-feedback">
+                                    食品介绍不能为空
+                                </div>
+                            </div>
+                            <div class="upload-btn-container">
+                                <button class="btn btn-primary upload-btn" onclick="updateProduct()">修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
