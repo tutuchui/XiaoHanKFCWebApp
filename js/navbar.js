@@ -1,6 +1,10 @@
 $(document).ready(function () {
+
     if(window.sessionStorage.getItem('isLogin') !== 'true'){
-        if(window.location.pathname !== '/login' || window.location.pathname !== '/register' ){
+        if(window.location.pathname === '/register'){
+            return;
+        }
+        if(window.location.pathname !== '/login'){
             $(location).attr('href','/login');
         }
 
