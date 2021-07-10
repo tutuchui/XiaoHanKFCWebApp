@@ -4,3 +4,8 @@ $(document).ready(function () {
         $("#nav-login-btn").html('登出');
     }
 })
+
+function suggestion()
+{
+    $(location).attr('href','/allSuggestion');
+}
