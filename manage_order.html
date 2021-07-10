@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/navbar.css">
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src = "jquery/jquery-3.6.0.min.js"></script>
-  <!--  <script src="js/index.js"></script>-->
+    <script src="js/manageOrder.js"></script>
   <script>
     $(function(){
       $(".hfc-nav-bar").load("common/navbarForAdmin.html");
@@ -48,36 +48,21 @@
         <div class="product-container" >
           <h4 style="font-size:48px">订单管理 ☎️🖨🗒✏️🔖
           </h4>
-          <table border="1" cellpadding="10" frame="hsides">
-            <tr>
-              <th width="250">订单号</th>
-              <th width="250">顾客名称</th>
-              <th width="250">订单类型</th>
-              <th width="250">订单状态</th>
-              <th width="250">查看订单详情</th>
-            </tr>
-            <tr>
-              <td>ORGDO000001</td>
-              <td>小王</td>
-              <td>商品订单</td>
-              <td>已完成</td>
-              <td>
-                <a>
-                  <button class="btn btn-success waves-effect waves-light" >查看详情</button>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>ORGDO000002</td>
-              <td>小桐</td>
-              <td>兑换订单</td>
-              <td>正在进行</td>
-              <td>
-                <a>
-                  <button class="btn btn-success waves-effect waves-light" >查看详情</button>
-                </a>
-              </td>
-            </tr>
+          <table border="1" cellpadding="10" frame="hsides" width="90%">
+            <thead>
+              <tr>
+                <th>订单号</th>
+                <th>顾客名称</th>
+                <th>顾客电话</th>
+                <th>支付状态</th>
+                <th>订单状态</th>
+                <th>查看订单详情</th>
+              </tr>
+            </thead>
+            <tbody class="order_info_content">
+
+            </tbody>
+
           </table>
         </div>
       </div>
