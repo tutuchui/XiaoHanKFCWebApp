@@ -28,7 +28,7 @@
     <label for="name">请输入您的真实姓名</label>
   </div>
   <div class="form-floating input-box-container">
-    <input type="phone" class="form-control" id="phone" placeholder="Password">
+    <input type="phone" class="form-control" id="phone" placeholder="12345678">
     <label for="phone">请输入您的手机号</label>
   </div>
   <div class="form-floating input-box-container">
@@ -36,16 +36,30 @@
     <label for="password">请输入您的密码</label>
   </div>
   <div class="form-floating input-box-container">
-    <input type="email" class="form-control" id="email" placeholder="Password">
+    <input type="password" class="form-control" id="password-confirm" placeholder="Password">
+    <label for="password">请再次输入您的密码</label>
+    <div class="invalid-feedback">
+      两次密码输入不一致
+    </div>
+  </div>
+  <div class="form-floating input-box-container">
+    <input type="email" class="form-control" id="email" placeholder="example@email.com">
     <label for="email">请输入您的邮箱</label>
   </div>
   <div class="form-floating input-box-container">
-    <input type="address" class="form-control" id="address" placeholder="Password">
+    <input type="address" class="form-control" id="address" placeholder="example address">
     <label for="address">请输入您的地址</label>
+  </div>
+  <div class="form-floating input-box-container">
+    <select class="form-select" id="gender" aria-label="食物类别">
+      <option value="1">男</option>
+      <option value="0">女</option>
+    </select>
+    <label for="address">请输入您的性别</label>
   </div>
   <div class="login-btn-container">
     <button class="btn btn-primary login-btn" onclick="register()">注册</button>
-    <button class="btn btn-primary login-btn" >返回登陆</button>
+    <a href="login.html"><button class="btn btn-primary login-btn" >返回登陆</button></a>
   </div>
 </div>
 </body>

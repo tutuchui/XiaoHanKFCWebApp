@@ -23,6 +23,9 @@
     margin-top: 40px;
     margin-bottom: 60px;
 }
+.hint-message_container{
+    margin-left: 18%;
+}
 
 .login-btn{
     background-color: #95bf48;

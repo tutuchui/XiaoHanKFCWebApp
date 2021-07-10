@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS Customer;
+
+CREATE TABLE Customer(
+	phone VARCHAR(20) NOT NULL PRIMARY KEY,
+	name VARCHAR(20) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	address VARCHAR(255),
+	gender INT NOT NULL
+)Engine = InnoDB;

@@ -23,7 +23,7 @@
     </div>
     <div class="side-nav">
         <div class="container-fluid">
-            <div class="row">
+            <div class="content-container row">
                 <div class="col-sm-auto bg-light sticky-top">
                     <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
                         <a href="#" class="d-block p-3 link-dark text-decoration-none product-category" onclick="displayProduct('friesChicken')">
@@ -40,10 +40,35 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-sm p-3 min-vh-100">
+                <div class=" col-sm p-3 min-vh-100">
                     <div class="product-container" style="margin-left: 20px">
                         <div class="row row-cols-3 main-product-container">
                         </div>
+                    </div>
+
+                </div>
+                <div class="d-flex bottom-navbar-container justify-content-end">
+                    <div class="total-price-text">总价：<span id="total-price">0</span></div>
+                    <button class="btn btn-danger submit-order-btn" data-bs-toggle="modal" data-bs-target="#submitOrderModal" onclick="refreshOrder()">下单</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="submitOrderModal" tabindex="-1" aria-labelledby="submitOrderModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="submitOrderModalLabel">确认下单</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        您是否确认下单？订单包含
+                        <div class="product-item-container" id="product-item-content">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="submitOrder()">确认</button>
                     </div>
                 </div>
             </div>
