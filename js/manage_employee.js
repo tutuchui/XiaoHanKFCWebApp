@@ -36,6 +36,9 @@ function displayEmployee() {
                 '<a>'+
                   '<button class="btn btn-success waves-effect waves-light">查看详情</button>'+
                ' </a>'+
+                '<a>'+
+                  '<button class="btn btn-danger waves-effect waves-light">炒他</button>'+
+                ' </a>'+
             ' </td>'+
             '<tr>'
         $(".employee-information").append(employeeHtml);
