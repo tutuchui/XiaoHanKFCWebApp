@@ -79,7 +79,7 @@ function submitOrder() {
         if(productCountMap.get(key) > 0){
             var curProduct = productIdMap.get(key);
             var orderProduct = new Object();
-            orderProduct['name'] = curProduct.name;
+            orderProduct['productName'] = curProduct.name;
             orderProduct['productCount'] = productCountMap.get(key);
             orderProduct['customerId'] = window.sessionStorage.getItem('phone');
             orderProduct['productId'] = curProduct.id;
@@ -98,7 +98,9 @@ function submitOrder() {
             'Access-Control-Allow-Origin': "http://localhost:8080"
         },
         success:function (data) {
-            console.log(data)
+            if(data === "SUCCESS"){
+
+            }
         },
         async:false
     })
