@@ -20,9 +20,9 @@ function login(){
                 $(location).attr('href','/index');
         },
         error: function (xhr, status, errorMessage) {
-            if(status === 501){
+            if(status === "501"){
                 alert("用户不存在，请注册");
-            }else if(status === 502){
+            }else if(status === "502"){
                 alert("用户名或密码错误");
             }else{
                 alert("未知错误");

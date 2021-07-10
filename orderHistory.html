@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史订单</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/orderhistory.css">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src = "./jquery/jquery-3.6.0.min.js"></script>
+    <script src="js/orderhistory.js"></script>
+    <script>
+        $(function(){
+            $(".hfc-nav-bar").load("common/navbar.html");
+        });
+    </script>
+</head>
+<body>
+<div class="hfc-nav-bar">
+</div>
+<div class="history-order-table-container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">订单号</th>
+            <th scope="col">订单人</th>
+            <th scope="col">联系电话</th>
+            <th scope="col">订单总价</th>
+            <th scope="col">支付状态</th>
+            <th scope="col">订单状态</th>
+            <th scope="col">订单时间</th>
+            <th scope="col">详情</th>
+            <th scope="col">支付</th>
+        </tr>
+        </thead>
+        <tbody id="order_table_content">
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
