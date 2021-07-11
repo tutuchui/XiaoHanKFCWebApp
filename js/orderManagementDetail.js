@@ -95,7 +95,7 @@ function updateRecord() {
         success: function (data) {
             if(data === 'Success'){
                 alert("编辑成功")
-                $(location).attr('href','/orderManagementDetail?OrderId=' + $("#orderId").val());
+                $(location).attr('href','/orderManagementDetail?orderId=' + $("#orderId").val());
             }
         },
         error: function (xhr, status, errorMessage) {

@@ -43,3 +43,4 @@ function displaySuggestion() {
         $(".suggestion-information").append(suggestionHtml);
     }
 }
+
