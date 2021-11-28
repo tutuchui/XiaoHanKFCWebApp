@@ -18,14 +18,15 @@ function ToEmployeeLogin()
 function login(){
     var number = $("#number").val();
     var password = $("#password").val();
-    var formData = new FormData();
-    formData.append("password",password);
-    formData.append("number", number);
     $.ajax({
-        url:"http://localhost:8080/admin_login",
+        url:"http://localhost:8080/admin/login",
         type:"POST",
-        data: formData,
-        contentType: false,
+        data: JSON.stringify({
+            number: number,
+            password: password,
+        }),
+        contentType: "application/json;utf-8",
+        dataType: "json",
         processData: false,
         header:{
             'Acess-Control-Allow-Origin':'http://localhost:8080'
@@ -37,9 +38,9 @@ function login(){
             $(location).attr('href','/adminIndex');
         },
         error: function (xhr, status, errorMessage) {
-            if(status === 501){
+            if(xhr.status === 501){
                 alert("用户不存在，请注册");
-            }else if(status === 502){
+            }else if(xhr.status === 502){
                 alert("用户名或密码错误");
             }else{
                 alert("未知错误");

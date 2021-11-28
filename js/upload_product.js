@@ -41,14 +41,18 @@ function uploadProduct(){
     if(!isValidInput){
         return;
     }
-    var formData = new FormData();
-    formData.append('imageFile',imageFile[0].files[0])
-    formData.append("productName", productName);
-    formData.append("productPrice",productPrice);
-    formData.append("productCategory",productCategory);
-    formData.append("productIntroduction", productIntroduction);
+    let formData = new FormData()
+    formData.append("file", imageFile[0].files[0])
+    formData.append("body", JSON.stringify({
+        name: productName,
+        price: productPrice,
+        imageFile: imageFile[0].files[0].name,
+        category: productCategory,
+        introduction: productIntroduction,
+    }))
+    console.log(imageFile[0].files[0].name)
     $.ajax({
-        url:"http://localhost:8080/uploadProduct",
+        url:"http://localhost:8080/product/upload",
         type:"POST",
         data: formData,
         contentType: false,
@@ -57,9 +61,8 @@ function uploadProduct(){
             'Acess-Control-Allow-Origin':'http://localhost:8080'
         },
         success: function (data) {
-            if(data === 'Success'){
-                alert("上传成功")
-            }
+            alert("上传成功")
+            $(location).attr('href','/manage_product');
         },
         error: function (xhr, status, errorMessage) {
             alert("上传失败")

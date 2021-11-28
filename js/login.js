@@ -8,14 +8,15 @@ $(document).ready(function () {
 function login(){
     var phone = $("#phone").val();
     var password = $("#password").val();
-    var formData = new FormData();
-    formData.append("password",password);
-    formData.append("phone", phone);
     $.ajax({
-        url:"http://localhost:8080/customer_login",
+        url:"http://localhost:8080/customer/login",
         type:"POST",
-        data: formData,
-        contentType: false,
+        data: JSON.stringify({
+            phone: phone,
+            password: password
+        }),
+        contentType: "application/json;utf-8",
+        dataType: "json",
         processData: false,
         header:{
             'Acess-Control-Allow-Origin':'http://localhost:8080'
@@ -27,9 +28,9 @@ function login(){
                 $(location).attr('href','/index');
         },
         error: function (xhr, status, errorMessage) {
-            if(status === "501"){
+            if(xhr.status === 501){
                 alert("用户不存在，请注册");
-            }else if(status === "502"){
+            }else if(xhr.status === 502){
                 alert("用户名或密码错误");
             }else{
                 alert("未知错误");

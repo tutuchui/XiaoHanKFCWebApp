@@ -12,7 +12,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-        url: "http://localhost:8080/getAllProducts",
+        url: "http://localhost:8080/product/getAllProducts",
         type: "GET",
         dataType: "json",
         header:{
@@ -127,17 +127,13 @@ function displayProduct(category) {
     for (i = 0; i < product.length; i++) {
         var productHtml =
             '<div class="col card me-3" style="width: 18rem;">' +
-                '<img src="' + product[i].imageUrl + '" class="card-img-top hfc-card-image">' +
+                '<img src="http://localhost:8080/' + product[i].imageUrl + '" class="card-img-top hfc-card-image">' +
                 '<div class="card-body">' +
                     '<h5 class="card-title">' + product[i].name + '</h5>' +
                     '<p class="card-text">' + product[i].introduction + '</p>' +
                     "<button class='btn btn-danger' onclick='addProduct(this, " + JSON.stringify(product[i]) + ")' value= product" +product[i].id + "><i class='bi bi-plus'></i></button>" +
                     '&nbsp;<span id=' + 'product' + product[i].id + '-count' + '>'+ productCountMap.get('product' + product[i].id) + '</span>&nbsp;' +
                     "<button class='btn btn-secondary' onclick='minusProduct(this, " + JSON.stringify(product[i]) + ")' value= product" +product[i].id + "><i class='bi bi-dash'></i></button>" +
-                    ' <div class="d-flex detail-btn-container justify-content-between">\n' +
-            '            <button class="btn btn-primary detail-btn" onclick="showDetail(' + product[i].id + ')">显示详情</button>\n' +
-                         '<p class="product-price">￥' + product[i].price + '</p>'+
-            '        </div>' +
                 '</div>' +
             '</div>'
         $(".main-product-container").append(productHtml);
