@@ -92,8 +92,8 @@
                                 </div>
                             </div>
                             <div class="upload-btn-container">
-                                <button class="btn btn-primary upload-btn" onclick="updateProduct()">修改</button>
-                                <button class="btn btn-danger upload-btn" onclick="deleteProduct()">删除食品</button>
+                                <button class="btn btn-primary " onclick="updateProduct()">修改</button>
+                                <button class="btn btn-danger " onclick="deleteProduct()">删除食品</button>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             <div class="d-flex justify-content-around">
                             </div>
                             <table class="table caption-top">
-                                <caption>食品成本：13元</caption>
+                                <h5>原料成本：<code>13</code>元</h5>
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -115,7 +115,9 @@
                                     <th scope="col">原料厂家</th>
                                     <th scope="col">原料价格</th>
                                     <th scope="col">所需数量</th>
-                                    <th scope="col"><button class="btn btn-primary upload-btn">增加</button></th>
+                                    <th scope="col">
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">增加</button>
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -125,7 +127,7 @@
                                     <td>山姆商店</td>
                                     <td>3</td>
                                     <td>2</td>
-                                    <td><button class="btn btn-primary upload-btn">删除</button></td>
+                                    <td><button class="btn btn-danger">删除</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
@@ -133,7 +135,7 @@
                                     <td>牛肉商铺</td>
                                     <td>6</td>
                                     <td>1</td>
-                                    <td><button class="btn btn-primary upload-btn">删除</button></td>
+                                    <td><button class="btn btn-danger">删除</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
@@ -141,10 +143,42 @@
                                     <td>蔬菜铺</td>
                                     <td>1</td>
                                     <td>1</td>
-                                    <td><button class="btn btn-primary upload-btn">删除</button></td>
+                                    <td><button class="btn btn-danger">删除</button></td>
                                 </tr>
                                 </tbody>
                             </table>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">新增原料</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="mb-3">
+                                                    <label class="col-form-label">所需原料:</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">面包片</option>
+                                                        <option value="2">牛肉</option>
+                                                        <option value="3">生菜</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label  class="col-form-label">所需数量:</label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Send message</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
