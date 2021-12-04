@@ -106,8 +106,8 @@
                         <div class="input-container">
                             <div class="d-flex justify-content-around">
                             </div>
-                            <table class="table caption-top">
-                                <h5>原料成本：<code>13</code>元</h5>
+                            <table class="table caption-top" id="ingredient-table">
+                                <h5>原料成本：<code id="ingredients-price">0</code>元</h5>
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -121,30 +121,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>面包片</td>
-                                    <td>山姆商店</td>
-                                    <td>3</td>
-                                    <td>2</td>
-                                    <td><button class="btn btn-danger">删除</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>牛肉</td>
-                                    <td>牛肉商铺</td>
-                                    <td>6</td>
-                                    <td>1</td>
-                                    <td><button class="btn btn-danger">删除</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>生菜</td>
-                                    <td>蔬菜铺</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td><button class="btn btn-danger">删除</button></td>
-                                </tr>
+
                                 </tbody>
                             </table>
 
@@ -159,26 +136,43 @@
                                             <form>
                                                 <div class="mb-3">
                                                     <label class="col-form-label">所需原料:</label>
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected>Open this select menu</option>
-                                                        <option value="1">面包片</option>
-                                                        <option value="2">牛肉</option>
-                                                        <option value="3">生菜</option>
+                                                    <select class="form-select" aria-label="Default select example" id="ingredientsSelect">
+                                                        <option selected>选择所需的原料</option>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label  class="col-form-label">所需数量:</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" id="ingredientCount">
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Send message</button>
+                                            <button type="button" class="btn btn-primary" onclick="addIngredientForProduct()">确定</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+<!--                            <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                    <div class="modal-content">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h5 class="modal-title" id="deleteConfirmModalLabel">删除原料</h5>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-body">-->
+<!--                                            <div>-->
+<!--                                                确认删除该原料？-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                                            <button type="button" class="btn btn-primary" onclick="confirm()">确定</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
