@@ -9,8 +9,6 @@ $(document).ready(function () {
     initMap();
     getAllProducts();
     showProduct();
-
-
 })
 
 function initMap() {

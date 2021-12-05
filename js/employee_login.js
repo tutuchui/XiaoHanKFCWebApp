@@ -26,7 +26,7 @@ function employee_login(){
             window.sessionStorage.setItem('number', number);
             window.sessionStorage.setItem('name', data);
             window.sessionStorage.setItem('employeeIsLogin', "true");
-            $(location).attr('href','/employee_html/manage_product_state_0');
+            $(location).attr('href','/employee_html/manage_product_state');
         },
         error: function (xhr, status, errorMessage) {
             if(xhr.status === 501){

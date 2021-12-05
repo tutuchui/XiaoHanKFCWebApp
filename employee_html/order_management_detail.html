@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/orderManagementDetail.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src = "../jquery/jquery-3.6.0.min.js"></script>
-    <script src = "../js/orderManagementDetail.js"></script>
+    <script src = "../js/order_management_detail.js"></script>
     <script>
         $(function(){
             $(".hfc-nav-bar").load("../common/navbar.html");
@@ -45,10 +45,10 @@
         </div>
         <div class="form-floating input-box-container">
             <select class="form-select" id="orderStatus" aria-label="订单状态">
-                <option value="0" id="order-0">未准备</option>
-                <option value="1" id="order-1">准备中</option>
-                <option value="2" id="order-2">配送中</option>
-                <option value="3" id="order-3">完成</option>
+                <option value="0" id="order-0">已接单</option>
+                <option value="1" id="order-1">制作完成</option>
+                <option value="2" id="order-2">配送完成</option>
+                <option value="3" id="order-3">订单完成</option>
             </select>
             <label for="paymentStatus">订单状态</label>
         </div>

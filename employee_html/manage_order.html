@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/navbar.css">
   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src = "../jquery/jquery-3.6.0.min.js"></script>
-    <script src="../js/manageOrder.js"></script>
+    <script src="../js/manage_order.js"></script>
   <script>
     $(function(){
       $(".hfc-nav-bar").load("../common/navbarForEmployee.html");
@@ -26,23 +26,21 @@
     <div class="row">
       <div class="col-sm-auto bg-light sticky-top">
         <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
-          <a class="d-block p-3 link-dark text-decoration-none product-category" >
-            食物管理
-          </a>
-          <nav class="nav nav-pills flex-column">
-            <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product_state_0.html">上架食物</a>
-            <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product_state_1.html">下架食物</a>
-          </nav>
-          <a href="manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-            订单管理
-          </a>
+          <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+            <a class="d-block p-3 link-dark text-decoration-none product-category" href="manage_product_state.html">
+              食物管理
+            </a>
+            <a href="manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+              订单管理
+            </a>
+          </div>
         </div>
       </div>
       <div class="col-sm p-3 min-vh-100">
         <div class="product-container" >
           <h4 style="font-size:48px">订单管理 ☎️🖨🗒✏️🔖
           </h4>
-          <table border="1" cellpadding="10" frame="hsides" width="100%">
+          <table border="1" cellpadding="10" frame="hsides" width="100%" id="order-table">
             <thead>
               <tr>
                 <th>订单号</th>
