@@ -108,7 +108,7 @@ function submitOrder() {
         },
         success:function (data) {
             alert('下单成功')
-            $(location).attr('href','/orderHistory');
+            $(location).attr('href','/customer_html/order_history');
         },
         error(){
             alert('提交订单失败');
