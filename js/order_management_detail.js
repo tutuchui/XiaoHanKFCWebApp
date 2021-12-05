@@ -70,26 +70,27 @@ function updateRecord() {
     console.log(paymentStatus);
     console.log(orderStatus);
 
-    // $.ajax({
-    //     url:"http://localhost:8080/updateOrderStatus",
-    //     type:"POST",
-    //     data: JSON.stringify({
-    //         // orderId:
-    //     }),
-    //     contentType: "application/json;charset=utf-8",
-    //     processData: false,
-    //     header:{
-    //         'Acess-Control-Allow-Origin':'http://localhost:8080'
-    //     },
-    //     success: function (data) {
-    //         if(data === 'Success'){
-    //             alert("编辑成功")
-    //             $(location).attr('href','/orderManagementDetail?orderId=' + $("#orderId").val());
-    //         }
-    //     },
-    //     error: function (xhr, status, errorMessage) {
-    //         alert("编辑失败")
-    //     }
-    // })
+    $.ajax({
+        url:"http://localhost:8080/employee/updateOrderStatus",
+        type:"POST",
+        data: JSON.stringify({
+            orderId:orderId,
+            paymentStatus: paymentStatus,
+            orderStatus: orderStatus
+        }),
+        contentType: "application/json;charset=utf-8",
+        processData: false,
+        header:{
+            'Acess-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            alert("更新订单状态成功")
+            $(location).attr('href','/employee_html/order_management_detail?orderId=' + $("#orderId").val());
+
+        },
+        error: function (xhr, status, errorMessage) {
+            alert("编辑失败")
+        }
+    })
 
 }
