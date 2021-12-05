@@ -22,8 +22,10 @@ function login(){
             'Acess-Control-Allow-Origin':'http://localhost:8080'
         },
         success: function (data) {
+            console.log(data)
                 window.sessionStorage.setItem('phone', phone);
-                window.sessionStorage.setItem('name', data);
+                window.sessionStorage.setItem('name', data.name);
+                window.sessionStorage.setItem('customerId', data.customerId);
                 window.sessionStorage.setItem('customerIsLogin', "true");
                 $(location).attr('href','/index');
         },
