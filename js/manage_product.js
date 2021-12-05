@@ -1,5 +1,6 @@
 var Product = [];
 var productCountMap = new Map();
+
 $(document).ready(function () {
     if(window.sessionStorage.getItem('adminIsLogin') !== 'true'){
         $(location).attr('href','/adminLogin');
