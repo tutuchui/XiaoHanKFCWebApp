@@ -9,7 +9,7 @@ var customerId;
 $(document).ready(function () {
 
     if(window.sessionStorage.getItem('customerIsLogin') !== 'true'){
-            $(location).attr('href','/login');
+            $(location).attr('href','/customer_html/login');
     }
     customerId = window.sessionStorage.getItem('customerId');
     $.ajax({
