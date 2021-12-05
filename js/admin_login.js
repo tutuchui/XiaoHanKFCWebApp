@@ -7,12 +7,12 @@ $(document).ready(function () {
 })
 function ToCustomerLogin()
 {
-    $(location).attr('href','/login');
+    $(location).attr('href','../customer_html/login');
 }
 
 function ToEmployeeLogin()
 {
-    $(location).attr('href','/employee_login');
+    $(location).attr('href','employee_html/employee_login');
 }
 
 function login(){

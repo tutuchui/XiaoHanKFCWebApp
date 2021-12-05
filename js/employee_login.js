@@ -10,7 +10,7 @@ function employee_login(){
     var number = $("#number").val();
     var password = $("#password").val();
     $.ajax({
-        url:"http://localhost:8080/admin/login",
+        url:"http://localhost:8080/employee/login",
         type:"POST",
         data: JSON.stringify({
             number: number,
@@ -26,7 +26,7 @@ function employee_login(){
             window.sessionStorage.setItem('number', number);
             window.sessionStorage.setItem('name', data);
             window.sessionStorage.setItem('employeeIsLogin', "true");
-            $(location).attr('href','/employeeIndex');
+            $(location).attr('href','/employee_html/manage_product_state_0');
         },
         error: function (xhr, status, errorMessage) {
             if(xhr.status === 501){
@@ -40,12 +40,12 @@ function employee_login(){
     })
 }
 
-function ToEmployeeLogin()
+function ToAdminLogin()
 {
-    $(location).attr('href','/employee_login');
+    $(location).attr('href','../adminLogin');
 }
 
 function ToCustomerLogin()
 {
-    $(location).attr('href','/login');
+    $(location).attr('href','../customer_html/login');
 }

@@ -45,3 +45,8 @@ function ToAdminLogin()
 {
     $(location).attr('href','/adminLogin');
 }
+
+function ToEmployeeLogin() {
+    $(location).attr('href','/employee_html/employee_login');
+
+}
