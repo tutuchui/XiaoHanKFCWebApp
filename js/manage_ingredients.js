@@ -1,5 +1,4 @@
 var ingredientsList = [];
-var purchaseRecord = [];
 $(document).ready(function () {
     getAllIngredientsForSelect()
     displayIngredients()
@@ -24,6 +23,7 @@ function getAllIngredientsForSelect() {
 function displayIngredients() {
     $(".ingredients-information").html('');
     for (i = 0; i < ingredientsList.length; i++) {
+        let ingredientsInfo = ingredientsList[i]
         var ingredientsHtml =
             '<tr>'+
             '<td>'+ ingredientsList[i].name +'</td>'+
@@ -31,10 +31,10 @@ function displayIngredients() {
             '<td>'+ ingredientsList[i].category +'</td>'+
             '<td>'+ ingredientsList[i].introduction +'</td>'+
             '<td>'+ ingredientsList[i].price +'</td>'+
-            '<td>'+ 0 +'</td>'+
+            '<td>'+ ingredientsList[i].number +'</td>'+
             '<td>' +
             '<div>' +
-            '<button class="btn btn-primary">购买</button>' +
+            '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#purchaseIngredientModal" onclick="loadPurchaseInfo(' + ingredientsInfo.ingredientsId + ',' + ingredientsInfo.price  + ')">购买</button>' +
             '<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="margin-left: 10px" onclick="getPurchaseIngredientsRecordById('+ingredientsList[i].ingredientsId+')">购买详情</button>' +
             '</div>' +
             '</td>'+
@@ -42,6 +42,11 @@ function displayIngredients() {
         $(".ingredients-information").append(ingredientsHtml);
     }
 }
+function loadPurchaseInfo(id, price){
+    $("#purchasePrice").attr('value', price)
+    $("#purchase-ingredients-btn").attr("onclick", "purchaseIngredients(" + id + ")")
+}
+
 
 function addIngredient() {
     let ingredientsName = $('#ingredientsName').val(); // 10
@@ -71,6 +76,23 @@ function addIngredient() {
         error(xhr, status, errorMessage){
             alert("增加失败")
         }
+    })
+}
+
+function purchaseIngredients(ingredientsId){
+    let number = $("#ingredientsCount").val()
+    $.ajax({
+        url: 'http://localhost:8080/product/purchaseIngredients',
+        type: "POST",
+        data: JSON.stringify({
+            ingredientsId: ingredientsId,
+            number: number
+        }),
+        contentType: 'application/json;charset-utf-8',
+        success(data) {
+            alert("购买原料成功!")
+            location.reload();
+        },
     })
 }
 

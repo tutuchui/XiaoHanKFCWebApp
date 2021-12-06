@@ -67,5 +67,40 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="makeProductModal" tabindex="-1" aria-labelledby="makeProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="makeProductModalLabel">制作商品</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>材料名称</th>
+                <th>所需数量</th>
+                <th>剩余库存</th>
+              </tr>
+              </thead>
+              <tbody id="ingredients-table-list">
+
+              </tbody>
+            </table>
+            <label  class="col-form-label">制作数量:</label>
+            <input type="number" class="form-control" id="product-count" value="" placeholder="输入制作商品的数量">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="make-product-btn">制作</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

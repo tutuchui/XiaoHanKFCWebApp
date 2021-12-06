@@ -19,127 +19,152 @@
 </head>
 
 <body>
-<div class="hfc-nav-bar">
-</div>
-<div class="side-nav">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-auto bg-light sticky-top">
-        <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
-          <a class="d-block p-3 link-dark text-decoration-none product-category" >
-            食物管理
-          </a>
-          <nav class="nav nav-pills flex-column">
-            <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product.html">查看食物</a>
-            <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="upload_product.html">上传食物</a>
-          </nav>
-          <a href="manage_ingredients.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-            原料管理
-          </a>
-          <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-            员工管理
-          </a>
-          <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-            销售数据
-          </a>
-        </div>
-      </div>
-      <div class="col-sm p-3 min-vh-100">
-        <h4 style="font-size:48px">原料供应商管理 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">增加新原料</button></h4>
-        <table  border="1" cellpadding="10" frame="hsides">
-          <thead>
-          <tr>
-            <th width="250">原料名称</th>
-            <th width="250">厂家</th>
-            <th width="250">类型</th>
-            <th width="350">介绍</th>
-            <th width="150">价格</th>
-            <th width="100">库存</th>
-            <th width="250">操作</th>
-          </tr>
-          </thead>
-          <tbody class="ingredients-information">
-          </tbody>
-        </table>
-      </div>
-    </div>
+  <div class="hfc-nav-bar">
   </div>
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel2">购买详情</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="side-nav">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-auto bg-light sticky-top">
+          <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+            <a class="d-block p-3 link-dark text-decoration-none product-category" >
+              食物管理
+            </a>
+            <nav class="nav nav-pills flex-column">
+              <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product.html">查看食物</a>
+              <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="upload_product.html">上传食物</a>
+            </nav>
+            <a href="manage_ingredients.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+              原料管理
+            </a>
+            <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+              员工管理
+            </a>
+            <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+              销售数据
+            </a>
+          </div>
         </div>
-        <div class="modal-body">
-          <form>
-            <table class="table">
-              <thead>
-              <tr>
-                <th scope="col">日期</th>
-                <th scope="col">数量</th>
-                <th scope="col">操作员</th>
-                <th scope="col">备注</th>
-              </tr>
-              </thead>
-              <tbody id="ingredients-record">
-              </tbody>
-            </table>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="col-sm p-3 min-vh-100">
+          <h4 style="font-size:48px">原料供应商管理 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">增加新原料</button></h4>
+          <table  border="1" cellpadding="10" frame="hsides">
+            <thead>
+            <tr>
+              <th width="250">原料名称</th>
+              <th width="250">厂家</th>
+              <th width="250">类型</th>
+              <th width="350">介绍</th>
+              <th width="150">价格</th>
+              <th width="100">库存</th>
+              <th width="250">操作</th>
+            </tr>
+            </thead>
+            <tbody class="ingredients-information">
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">新增原料</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel2">使用详情</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <table class="table">
+                <thead>
+                <tr>
+                  <th scope="col">日期</th>
+                  <th scope="col">使用数量</th>
+                  <th scope="col">操作员</th>
+                  <th scope="col">备注</th>
+                </tr>
+                </thead>
+                <tbody id="ingredients-record">
+                </tbody>
+              </table>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label  class="col-form-label">原料名称:</label>
-              <input type="text" class="form-control" id="ingredientsName" placeholder="输入原料名称">
-            </div>
-            <div class="mb-3">
-              <label  class="col-form-label">价格:</label>
-              <input type="number" class="form-control" id="ingredientsPrice" placeholder="输入厂家报价">
-            </div>
-            <div class="mb-3">
-              <label  class="col-form-label">厂家:</label>
-              <input type="text" class="form-control" id="ingredientsMerchant" placeholder="输入厂家名称">
-            </div>
-            <div class="mb-3">
-              <label class="col-form-label">类型:</label>
-              <select class="form-select" aria-label="Default select example" id="ingredientsType">
-                <option selected>选择原料类型</option>
-                <option value="肉类">肉类</option>
-                <option value="菜类">菜类</option>
-                <option value="果类">果类</option>
-                <option value="生鲜类">生鲜类</option>
-                <option value="包装类">包装类</option>
-                <option value="其他">其他</option>
-              </select>
-            </div>
-            <div class="mb-3">
-                <label for="ingredientsIntro" class="col-form-label">介绍:</label>
-                <textarea class="form-control" id="ingredientsIntro" placeholder="请输入原料介绍"></textarea>
-            </div>
-          </form>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">新增原料</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label  class="col-form-label">原料名称:</label>
+                <input type="text" class="form-control" id="ingredientsName" placeholder="输入原料名称">
+              </div>
+              <div class="mb-3">
+                <label  class="col-form-label">价格:</label>
+                <input type="number" class="form-control" id="ingredientsPrice" placeholder="输入厂家报价">
+              </div>
+              <div class="mb-3">
+                <label  class="col-form-label">厂家:</label>
+                <input type="text" class="form-control" id="ingredientsMerchant" placeholder="输入厂家名称">
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">类型:</label>
+                <select class="form-select" aria-label="Default select example" id="ingredientsType">
+                  <option selected>选择原料类型</option>
+                  <option value="肉类">肉类</option>
+                  <option value="菜类">菜类</option>
+                  <option value="果类">果类</option>
+                  <option value="生鲜类">生鲜类</option>
+                  <option value="包装类">包装类</option>
+                  <option value="其他">其他</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                  <label for="ingredientsIntro" class="col-form-label">介绍:</label>
+                  <textarea class="form-control" id="ingredientsIntro" placeholder="请输入原料介绍"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="addIngredient()">确定</button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="addIngredient()">确定</button>
+      </div>
+    </div>
+
+    <div class="modal fade" id="purchaseIngredientModal" tabindex="-1" aria-labelledby="purchaseIngredientModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="purchaseIngredientModalLabel">购买原料</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label  class="col-form-label">原料单价:</label>
+                <input type="text" class="form-control" id="purchasePrice" disabled>
+                <label  class="col-form-label">购买数量:</label>
+                <input type="number" class="form-control" id="ingredientsCount" value="" placeholder="输入购买的原料数量">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="purchase-ingredients-btn">购买</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 </body>
 </html>
