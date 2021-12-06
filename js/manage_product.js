@@ -1,10 +1,12 @@
 var Product = [];
 var productCountMap = new Map();
+let stateMap = new Map();
 
 $(document).ready(function () {
     if(window.sessionStorage.getItem('adminIsLogin') !== 'true'){
         $(location).attr('href','/adminLogin');
     }
+    initMap()
     $.ajax({
         url: "http://localhost:8080/product/getAllProducts",
         type: "GET",
@@ -26,19 +28,34 @@ function prepareProducts(productList) {
     }
 }
 
+function initMap() {
+    stateMap.set(0,'下架');
+    stateMap.set(1,'上架');
+
+}
+
 function displayProduct() {
     var product = Product;
-    $(".main-product-container").html('');
     for (i = 0; i < product.length; i++) {
-        var productHtml =
-            '<div class="col card me-3" style="width: 18rem;">' +
-            '<img src="http://localhost:8080/' +  product[i].imageUrl + '" class="card-img-top hfc-card-image">' +
-            '<div class="card-body">' +
-            '<h5 class="card-title">' + product[i].name + '</h5>' +
-            "<button class='btn btn-danger' onclick='checkDetail(" + JSON.stringify(product[i]) + ")'>查看详情</button>" +
-            '</div>' +
-            '</div>'
-        $(".main-product-container").append(productHtml);
+        let index = i + 1;
+        let tbodyHtml = '<tr>' +
+            '<th scope="row">'+ index + '</th>' +
+            '<td>' + product[i].name + '</td>' +
+            '<td>' + product[i].price + '</td>' +
+            '<td>' + product[i].category + '</td>' +
+            '<td>' + product[i].introduction + '</td>' +
+            '<td>' + 0 + '</td>' +
+            '<td>' + + stateMap.get(product[i].state)   +' </td>' +
+            '<td>' +
+             '<a>' +
+            '<button class="btn btn-primary" onclick=checkDetail('+ JSON.stringify(product[i]) + ')>查看详情</button>' +
+            '</a>' +
+            '<a style="margin-left: 5px">' +
+            '<button class="btn btn-danger")>生产</button>' +
+            '</a>' +
+            '</td>' +
+            '</tr>'
+        $("#product-table tbody").append(tbodyHtml);
     }
 }
 

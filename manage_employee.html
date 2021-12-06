@@ -33,8 +33,8 @@
                 <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product.html">查看食物</a>
                 <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="upload_product.html">上传食物</a>
               </nav>
-              <a href="employee_html/manage_order.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-                订单管理
+              <a href="manage_ingredients.html" class="d-block p-3 link-dark text-decoration-none product-category" >
+                原料管理
               </a>
               <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category" >
                 员工管理
@@ -45,14 +45,14 @@
           </div>
         </div>
         <div class="col-sm p-3 min-vh-100">
-          <h4 style="font-size:48px">员工管理 👨‍🍳👩‍🍳🏍️🚴👨‍💼</h4>
+            <h4 style="font-size:48px">员工管理 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">增加新员工</button></h4>
           <table  border="1" cellpadding="10" frame="hsides">
             <thead>
             <tr>
               <th width="250">工号</th>
               <th width="250">员工名称</th>
-              <th width="250">员工类型</th>
               <th width="250">联系方式</th>
+              <th width="250">员工状态</th>
               <th width="250">查看详情</th>
             </tr>
             </thead>
@@ -62,6 +62,89 @@
         </div>
       </div>
   </div>
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">员工详情</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3"><label  class="col-form-label">员工名字:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工工号:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工电话:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工密码:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工邮箱:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工性别:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工类型:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工状态:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工应聘时间:</label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工解聘时间:</label></div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">新增员工</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label  class="col-form-label">员工工号:</label>
+                            <input type="text" class="form-control" id="employeeNumber" placeholder="用于员工登录">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="col-form-label">员工姓名:</label>
+                            <input type="text" class="form-control" id="employeeName" placeholder="请输入员工真实姓名">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="col-form-label">员工电话:</label>
+                            <input type="text" class="form-control" id="employeePhone" placeholder="请输入员工电话">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="col-form-label">员工密码:</label>
+                            <input type="text" class="form-control" id="employeePassword" placeholder="请输入员工密码">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="col-form-label">员工邮箱:</label>
+                            <input type="text" class="form-control" id="employeeEmail" placeholder="请输入员工邮箱">
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label">性别:</label>
+                            <select class="form-select" aria-label="Default select example" id="employeeGender">
+                                <option selected>选择性别</option>
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label">类型:</label>
+                            <select class="form-select" aria-label="Default select example" id="employeeType">
+                                <option selected>选择类型</option>
+                                <option value="0">前台员工</option>
+                                <option value="1">配送员</option>
+                                <option value="2">厨房员工</option>
+                                <option value="3">卫生员</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="addEmployee()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="fireEmployeeModal" tabindex="-1" aria-labelledby="fireEmployeeModalLabel" aria-hidden="true">
         <div class="modal-dialog">
