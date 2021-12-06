@@ -1,6 +1,11 @@
 var Employee = [];
 var employeeCountMap = new Map();
 let stateMap = new Map();
+let typeMap = new Map();
+let genderMap = new Map();
+var EmployeeInfo = [];
+var addTime = [];
+var fireTime = [];
 $(document).ready(function () {
     if(window.sessionStorage.getItem('adminIsLogin') !== 'true'){
         $(location).attr('href','/adminLogin');
@@ -33,6 +38,15 @@ function initMap() {
     stateMap.set(0,'正常');
     stateMap.set(1,'已解聘');
 
+    typeMap.set(0,'前台员工');
+    typeMap.set(1,'配送员');
+    typeMap.set(2,'厨房员工');
+    typeMap.set(3,'卫生员');
+
+    genderMap.set(0,'男');
+    genderMap.set(1,'女');
+
+
 }
 
 function displayEmployee() {
@@ -48,7 +62,7 @@ function displayEmployee() {
             employeeHtml += ' <td>'+ stateMap.get(employee[i].state) +'</td>'+
                 '<td>'+
                 '<a>'+
-                '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">查看详情</button>'+
+                '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="getEmployeeById('+employee[i].employeeId+')">查看详情</button>'+
                 '</a>'+
                 '<a>'+
                 '<button class="btn btn-danger waves-effect waves-light" style="margin-left: 10px" data-bs-toggle="modal" data-bs-target="#fireEmployeeModal" onclick="setModalName('+"'"+employee[i].number+"'"+')">炒他</button>'+
@@ -59,7 +73,7 @@ function displayEmployee() {
             employeeHtml += ' <td  style="color: red">'+ stateMap.get(employee[i].state) +'</td>'+
                 '<td>'+
                 '<a>'+
-                ' <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">查看详情</button>'+
+                ' <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="getEmployeeById('+employee[i].employeeId+')">查看详情</button>'+
                 ' </a>'+
                 ' </td>'+
                 '<tr>'
@@ -126,4 +140,57 @@ function addEmployee() {
             alert("增加员工失败")
         }
     })
+}
+
+function getEmployeeById(employeeId) {
+    $.ajax({
+        url: "http://localhost:8080/employee/getEmployeeById?employeeId=" + employeeId,
+        type:"GET",
+        contentType: "application/json;charset=utf-8",
+        header:{
+            'Access-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            console.log(data)
+            EmployeeInfo = JSON.parse(data);
+        },
+        async: false
+    })
+    $.ajax({
+        url: "http://localhost:8080/employee/getAddTimeById?employeeId=" + employeeId,
+        type:"GET",
+        contentType: "application/json;charset=utf-8",
+        header:{
+            'Access-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            console.log(data)
+            addTime = JSON.parse(data);
+        },
+        async: false
+    })
+    $.ajax({
+        url: "http://localhost:8080/employee/getFireTimeById?employeeId=" + employeeId,
+        type:"GET",
+        contentType: "application/json;charset=utf-8",
+        header:{
+            'Access-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            console.log(data)
+            fireTime = JSON.parse(data);
+        },
+        async: false
+    })
+    $("#form-employee-name").html(EmployeeInfo.name)
+    $("#form-employee-email").html(EmployeeInfo.email)
+    $("#form-employee-gender").html(genderMap.get(EmployeeInfo.gender))
+    $("#form-employee-number").html(EmployeeInfo.number)
+    $("#form-employee-password").html(EmployeeInfo.password)
+    $("#form-employee-phone").html(EmployeeInfo.phone)
+    $("#form-employee-state").html(stateMap.get(EmployeeInfo.state))
+    $("#form-employee-type").html(typeMap.get(EmployeeInfo.type))
+    $("#form-employee-add-ime").html(addTime)
+    $("#form-employee-fire-time").html(fireTime)
+
 }

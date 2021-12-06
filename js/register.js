@@ -32,7 +32,7 @@ function register(){
         success: function (data, textStatus, xhr) {
             if(xhr.status === 200){
                 alert("注册成功")
-                $(location).attr('href','/login');
+                $(location).attr('href','/customer_html/login');
             }
         },
         error: function (xhr, status, errorMessage) {

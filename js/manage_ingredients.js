@@ -1,4 +1,5 @@
 var ingredientsList = [];
+var purchaseRecord = [];
 $(document).ready(function () {
     getAllIngredientsForSelect()
     displayIngredients()
@@ -34,7 +35,7 @@ function displayIngredients() {
             '<td>' +
             '<div>' +
             '<button class="btn btn-primary">购买</button>' +
-            '<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="margin-left: 10px">查看详情</button>' +
+            '<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="margin-left: 10px" onclick="getPurchaseIngredientsRecordById('+ingredientsList[i].ingredientsId+')">购买详情</button>' +
             '</div>' +
             '</td>'+
             '<tr>'
@@ -71,4 +72,31 @@ function addIngredient() {
             alert("增加失败")
         }
     })
+}
+
+function getPurchaseIngredientsRecordById(ingredientsId) {
+    $.ajax({
+        url: "http://localhost:8080/product/getPurchaseIngredientsRecordById?ingredientsId=" + ingredientsId,
+        type:"GET",
+        contentType: "application/json;charset=utf-8",
+        header:{
+            'Access-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            purchaseRecord = JSON.parse(data);
+        },
+        async: false
+    })
+    $("#ingredients-record").html('');
+    for (i = 0; i < purchaseRecord.length; i++) {
+        var purchaseRecordHtml =
+            '<tr>' +
+                '<td style="color: green">' + purchaseRecord[i].purchaseTime + '</td>' +
+                '<td style="color: green">' + purchaseRecord[i].number + '</td>' +
+                '<td style="color: green">' + '管理员小明'+ '</td>' +
+                '<td style="color: green">' + '购买记录'+ '</td>' +
+            '</tr>'
+        $("#ingredients-record").append(purchaseRecordHtml);
+
+    }
 }
