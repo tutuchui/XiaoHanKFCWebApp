@@ -21,46 +21,21 @@
 </div>
 <div class="register-form-container">
   <div class="brand-container">
-    <img src="../images/logo.png" width="200" height="75">
+    <img src="../images/mySuggestion.png" width="200" height="75">
   </div>
-  <div class="form-floating mb-3 input-box-container">
-    <input type="name" class="form-control" id="name" placeholder="name@example.com">
-    <label for="name">请输入您的真实姓名</label>
-  </div>
-  <div class="form-floating input-box-container">
-    <input type="phone" class="form-control" id="phone" placeholder="Password">
-    <label for="phone">请输入您的手机号</label>
-  </div>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">Recipient:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="login-btn-container">
-    <button class="btn btn-primary login-btn" onclick="register()">发布</button>
-  </div>
+  <table class="table caption-top">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">时间</th>
+      <th scope="col">内容</th>
+      <th scope="col">查看反馈</th>
+    </tr>
+    </thead>
+    <tbody id="suggestion-list">
+
+    </tbody>
+  </table>
 </div>
 </body>
 </html>
