@@ -31,7 +31,7 @@ function showProduct() {
             '<td>' + allProductList[i].price + '</td>' +
             '<td>' + categoryMap.get(allProductList[i].category) + '</td>' +
             '<td>' + allProductList[i].introduction + '</td>' +
-            '<td>' + '\'待开发\'' + '</td>';
+            '<td>' + allProductList[i].remainCount + '</td>';
         if(allProductList[i].state === 0){
             tbodyHtml +=  '<td style="color: red">' + stateMap.get(allProductList[i].state)  + '</td>' +
                 '<td>' + '<button class="btn btn-primary" onclick="operateProduct(' + allProductList[i].productId + ',' +  allProductList[i].state + ')">' + operationMap.get(allProductList[i].state) + '</button>' + '</td>'

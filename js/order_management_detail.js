@@ -1,9 +1,13 @@
 var originalPaymentStatus;
 var originalOrderStatus;
 var customerId;
+var paymentStatusMap = new Map()
 $(document).ready(function () {
     const params = new URLSearchParams(location.search);
     var orderId = params.get("orderId");
+
+    paymentStatusMap.set(0, '未支付')
+    paymentStatusMap.set(1, '已支付')
 
     $.ajax({
         url: "http://localhost:8080/employee/getOrderDetails?orderId=" + orderId,
@@ -24,7 +28,8 @@ function displayData(orderData) {
     $("#orderId").attr("value",orderData.orderId);
     $("#name").attr("value",orderData.customerName);
     $("#orderDate").attr("value",orderData.orderTime);
-    $("#payment-" + orderData.paymentStatus).attr('selected','selected')
+    // $("#payment-" + orderData.paymentStatus).attr('selected','selected')
+    $("#paymentStatus").attr('value', paymentStatusMap.get(orderData.paymentStatus))
     $("#order-" + orderData.orderStatus).attr('selected','selected')
     $("#orderStatus").attr("value",orderData.orderStatus);
     originalOrderStatus = orderData.orderStatus;
@@ -35,13 +40,7 @@ function displayData(orderData) {
 function displayHistoryRecord(historyStatus){
     var content = ""
     for(var i = 0; i < historyStatus.length ; i++){
-        var paymentStatus;
-        if(historyStatus[i].paymentStatus === 0){
-            paymentStatus = '未支付';
-        }else{
-            paymentStatus = '已支付';
-        }
-
+        var paymentStatus = paymentStatusMap.get(historyStatus[i].paymentStatus);
         var orderStatus;
         if(historyStatus[i].orderStatus === 0){
             orderStatus = '已接单'
