@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="css/data.css">
   <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src = "jquery/jquery-3.6.0.min.js"></script>
-  <!--  <script src="js/index.js"></script>-->
+  <script src="js/c3-charts/d3.min.js" charset="utf-8"></script>
+  <script src="js/c3-charts/c3.min.js"></script>
+  <script src="js/data.js"></script>
   <script>
     $(function(){
       $(".hfc-nav-bar").load("common/navbarForAdmin.html");
@@ -57,7 +59,7 @@
                       <div class="card">
                         <div class="card-header">员工总人数</div>
                         <div class="card-body" >
-                          <h1>100人</h1>
+                          <h1><span id="employee-count"></span>人</h1>
                         </div>
                       </div>
                     </div>
@@ -65,7 +67,7 @@
                       <div class="card">
                         <div class="card-header">本月增加员工</div>
                         <div class="card-body">
-                          <h1>100人</h1>
+                          <h1><span id="employee-recruit-month"></span>人</h1>
                         </div>
                       </div>
                     </div>
@@ -73,7 +75,7 @@
                       <div class="card">
                         <div class="card-header">本月辞退员工</div>
                         <div class="card-body">
-                          <h1>100人</h1>
+                          <h1><span id="employee-fire-month"></span>人</h1>
                         </div>
                       </div>
                     </div>
@@ -85,7 +87,7 @@
                       <div class="card">
                         <div class="card-header">订单总量</div>
                         <div class="card-body" >
-                          <h1>100人</h1>
+                          <h1><span id="order-count"></span>人</h1>
                         </div>
                       </div>
                     </div>
@@ -93,7 +95,7 @@
                       <div class="card">
                         <div class="card-header">注册顾客量</div>
                         <div class="card-body">
-                          <h1>100人</h1>
+                          <h1><span id="customer-count"></span>人</h1>
                         </div>
                       </div>
                     </div>
@@ -101,7 +103,7 @@
                       <div class="card">
                         <div class="card-header">总投诉量</div>
                         <div class="card-body">
-                          <h1>100人</h1>
+                          <h1><span id="suggestion-count"></span>人</h1>
                         </div>
                       </div>
                     </div>
@@ -118,7 +120,7 @@
                             <div style="align-content: center">
                               <div class="about-sparkline responsive-mg-b-30">
                                 <div class="sparkline11-graph">
-                                  <div id="chart01"></div>
+                                  <div id="chart-employee-status"></div>
                                 </div>
                               </div>
                             </div>
@@ -361,292 +363,7 @@
   <link href="css/c3/c3.min.css" rel="stylesheet">
 
   <!-- Load d3.js and c3.js -->
-  <script src="js/c3-charts/d3.min.js" charset="utf-8"></script>
-  <script src="js/c3-charts/c3.min.js"></script>
-  <<script language="javascript">
-  var chart01 = c3.generate({
-    bindto: '#chart01',
-    data: {
-      // iris data from R
-      columns: [
-        ['data1', 30],
-        ['data2', 120],
-      ],
-      type: 'pie',
-      onclick: function (d, i) {
-        console.log("onclick", d, i);
-      },
-      onmouseover: function (d, i) {
-        console.log("onmouseover", d, i);
-      },
-      onmouseout: function (d, i) {
-        console.log("onmouseout", d, i);
-      }
-    }
-  });
-  setTimeout(function () {
-    chart01.load({
-      columns: [
-        ["1", 1],
-        ["2", 2],
-      ]
-    });
-  }, 1500);
 
-  setTimeout(function () {
-    chart01.unload({
-      ids: 'data1'
-    });
-    chart01.unload({
-      ids: 'data2'
-    });
-  }, 2500);
-
-  var chart2 = c3.generate({
-    bindto: '#chart02',
-    data: {
-      columns: [
-        ['data1', 30],
-        ['data2', 120],
-      ],
-      type : 'donut',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    donut: {
-      title: "Iris Petal Width"
-    }
-  });
-
-  setTimeout(function () {
-    chart.load({
-      columns: [
-        ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-        ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-        ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-      ]
-    });
-  }, 1500);
-  setTimeout(function () {
-    chart.unload({
-      ids: 'data1'
-    });
-    chart.unload({
-      ids: 'data2'
-    });
-  }, 2500);
-
-  var chart3 = c3.generate({
-    bindto: '#chart03',
-    data: {
-      columns: [
-        ['data', 91.4]
-      ],
-      type: 'gauge',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-
-    color: {
-      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-      threshold: {
-      }
-    },
-    size: {
-      height: 180
-    }
-  });
-
-  var chart4 = c3.generate({
-    bindto: '#chart04',
-    data: {
-      columns: [
-        ['data', 91.4]
-      ],
-      type: 'gauge',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    size: {
-      height: 180
-    }
-  });
-
-
-  var chart5 = c3.generate({
-    bindto: '#chart05',
-    data: {
-      columns: [
-        ['销售数量', 30, 200, 100, 400, 150, 250],
-        ['生产数量', 50, 20, 10, 40, 15, 25]
-      ]
-    },
-    zoom: {
-      enabled: true
-    },
-    subchart: {
-      show: true
-    },
-  });
-
-  var chart6 = c3.generate({
-    bindto: '#chart06',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250]
-      ],
-      type: 'bar'
-    },
-    bar: {
-      width: {
-        ratio: 0.5
-      }
-    }
-  });
-  var chart7 = c3.generate({
-    bindto: '#chart07',
-    data: {
-      columns: [
-        ['data', 91.4]
-      ],
-      type: 'gauge',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-
-    color: {
-      pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-      threshold: {
-      }
-    },
-    size: {
-      height: 180
-    }
-  });
-
-  var chart8 = c3.generate({
-    bindto: '#chart08',
-    data: {
-      columns: [
-        ['data', 91.4]
-      ],
-      type: 'gauge',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    size: {
-      height: 180
-    }
-  });
-
-
-  var chart09 = c3.generate({
-    bindto: '#chart09',
-    data: {
-      // iris data from R
-      columns: [
-        ['data1', 30],
-        ['data2', 120],
-      ],
-      type: 'pie',
-      onclick: function (d, i) {
-        console.log("onclick", d, i);
-      },
-      onmouseover: function (d, i) {
-        console.log("onmouseover", d, i);
-      },
-      onmouseout: function (d, i) {
-        console.log("onmouseout", d, i);
-      }
-    }
-  });
-
-  var chart10 = c3.generate({
-    bindto: '#chart10',
-    data: {
-      // iris data from R
-      columns: [
-        ['data1', 30],
-        ['data2', 120],
-      ],
-      type: 'pie',
-      onclick: function (d, i) {
-        console.log("onclick", d, i);
-      },
-      onmouseover: function (d, i) {
-        console.log("onmouseover", d, i);
-      },
-      onmouseout: function (d, i) {
-        console.log("onmouseout", d, i);
-      }
-    }
-  });
-
-  var chart11 = c3.generate({
-    bindto: '#chart11',
-    data: {
-      columns: [
-        ['数量', 30, 200, 100, 400, 150, 250]
-      ]
-    },
-    grid: {
-      y: {
-        lines: [{value: 100, class: 'grid800', text: '最低标准'},{value: 150, class: 'grid800', text: '平均数量'},{value: 200, class: 'grid800', text: '最高目标'}]
-      }
-    },
-    zoom: {
-      enabled: true
-    },
-    subchart: {
-      show: true
-    }
-  });
-
-  var chart12 = c3.generate({
-    bindto: '#chart12',
-    data: {
-      columns: [
-        ['data1', 30],
-        ['data2', 120],
-      ],
-      type : 'donut',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    donut: {
-      title: "Iris Petal Width"
-    }
-  });
-
-  var chart13 = c3.generate({
-    bindto: '#chart13',
-    data: {
-      columns: [
-        ['data1', 30],
-        ['data2', 120],
-      ],
-      type : 'donut',
-      onclick: function (d, i) { console.log("onclick", d, i); },
-      onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-      onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    donut: {
-      title: "Iris Petal Width"
-    }
-  });
-
-
-
-
-
-
-</script>
 </div>
 </body>
 </html>
