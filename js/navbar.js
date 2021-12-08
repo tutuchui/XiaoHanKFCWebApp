@@ -7,6 +7,6 @@ $(document).ready(function () {
 
 function suggestion()
 {
-    $(location).attr('href','../employee_html/allSuggestion');
+    $(location).attr('href','../employee_html/all_suggestion');
 }
 
