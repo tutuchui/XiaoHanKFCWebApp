@@ -24,7 +24,8 @@ function employee_login(){
         },
         success: function (data) {
             window.sessionStorage.setItem('number', number);
-            window.sessionStorage.setItem('name', data);
+            window.sessionStorage.setItem('name', data.name);
+            window.sessionStorage.setItem('employeeId',data.employeeId)
             window.sessionStorage.setItem('employeeIsLogin', "true");
             $(location).attr('href','/employee_html/manage_product_state');
         },
