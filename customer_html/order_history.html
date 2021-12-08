@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/orderhistory.css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src = "../jquery/jquery-3.6.0.min.js"></script>
-    <script src="../js/orderhistory.js"></script>
+    <script src="../js/order_history.js"></script>
     <script>
         $(function(){
             $(".hfc-nav-bar").load("../common/navbar.html");
@@ -20,7 +20,7 @@
 <div class="hfc-nav-bar">
 </div>
 <div class="history-order-table-container">
-    <table class="table table-hover">
+    <table class="table table-hover" id="order-history-table">
         <thead>
         <tr>
             <th scope="col">订单号</th>
@@ -38,5 +38,28 @@
         </tbody>
     </table>
 </div>
+
+<div class="modal fade" id="orderDetailModal" tabindex="-1" aria-labelledby="orderDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderDetailModalLabel">订单详情</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover" id="order-detail-table">
+                    <thead>
+                        <tr>
+                            <th>商品名称</th>
+                            <th>商品数量</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

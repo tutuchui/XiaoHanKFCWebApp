@@ -46,7 +46,6 @@ function loadOrderTable() {
             '<td>' + orderStatusMap.get(orderForEmployeeList[i].orderStatus) + '</td>' +
             '<td>' + '<button class="btn btn-primary" onclick="checkDetail(' + orderForEmployeeList[i].orderId + ')">查看详情</button>' + '</td>' +
             '</tr>'
-
         $("#order-table tbody").append(tbodyHtml);
     }
 }

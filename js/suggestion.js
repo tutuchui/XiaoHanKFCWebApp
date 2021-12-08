@@ -1,7 +1,6 @@
 var mySuggestion = [];
 var customerId = window.sessionStorage.getItem('customerId');
 $(document).ready(function () {
-
     displayMySuggestion(customerId);
 })
 
