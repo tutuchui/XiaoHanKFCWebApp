@@ -8,6 +8,14 @@ $(document).ready(function () {
     employeeGenderChart()
     customerGenderChart()
     productCount()
+    ingredientsChart()
+    suggestionChart()
+    productStatusChart()
+    productPriceChart()
+    productCategoryChart()
+    orderChart()
+    orderPriceChart()
+    fakeChart()
 })
 
 function getEmployeeData() {
@@ -66,9 +74,6 @@ function employeeTypeChart(){
                 ['卫生员', chartStatics.employeeType3Count]
             ],
             type : 'donut',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
         },
         donut: {
             title: "员工类别"
@@ -104,7 +109,7 @@ function customerGenderChart(){
         bindto: '#chart04',
         data: {
             columns: [
-                ['顾客性别', chartStatics.employeeBoy, chartStatics.employeeGirl]
+                ['顾客性别', chartStatics.customerBoy, chartStatics.customerGirl]
             ],
             type: 'bar',
             colors:{
@@ -159,155 +164,240 @@ function productCount(){
     });
 }
 
-
-
-
-
-var chart6 = c3.generate({
-    bindto: '#chart06',
-    data: {
-        columns: [
-            ['data1', 30, 200, 100, 400, 150, 250]
-        ],
-        type: 'bar'
-    },
-    bar: {
-        width: {
-            ratio: 0.5
-        }
+function ingredientsChart(){
+    let ingredientsStatic = chartStatics.ingredientsStaticsList
+    let importArray = ['进货数量']
+    let ingredientsNameArray = []
+    for(var i = 0; i <ingredientsStatic.length; i++){
+        importArray.push(ingredientsStatic[i].count)
+        ingredientsNameArray.push(ingredientsStatic[i].name)
     }
-});
-var chart7 = c3.generate({
-    bindto: '#chart07',
-    data: {
-        columns: [
-            ['data', 91.4]
-        ],
-        type: 'gauge',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-
-    color: {
-        pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-        threshold: {
-        }
-    },
-    size: {
-        height: 180
-    }
-});
-
-var chart8 = c3.generate({
-    bindto: '#chart08',
-    data: {
-        columns: [
-            ['data', 91.4]
-        ],
-        type: 'gauge',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    size: {
-        height: 180
-    }
-});
-
-
-var chart09 = c3.generate({
-    bindto: '#chart09',
-    data: {
-        // iris data from R
-        columns: [
-            ['data1', 30],
-            ['data2', 120],
-        ],
-        type: 'pie',
-        onclick: function (d, i) {
-            console.log("onclick", d, i);
+    var chart6 = c3.generate({
+        bindto: '#chart06',
+        data: {
+            columns: [
+                importArray
+            ],
+            type: 'bar'
         },
-        onmouseover: function (d, i) {
-            console.log("onmouseover", d, i);
+        bar: {
+            width: {
+                ratio: 0.5
+            }
         },
-        onmouseout: function (d, i) {
-            console.log("onmouseout", d, i);
-        }
-    }
-});
-
-var chart10 = c3.generate({
-    bindto: '#chart10',
-    data: {
-        // iris data from R
-        columns: [
-            ['data1', 30],
-            ['data2', 120],
-        ],
-        type: 'pie',
-        onclick: function (d, i) {
-            console.log("onclick", d, i);
+        axis: {
+            x: {
+                type: 'category',
+                categories: ingredientsNameArray
+            }
         },
-        onmouseover: function (d, i) {
-            console.log("onmouseover", d, i);
+        zoom: {
+            enabled: true
         },
-        onmouseout: function (d, i) {
-            console.log("onmouseout", d, i);
+        subchart: {
+            show: false
+        },
+    });
+}
+
+
+function suggestionChart(){
+    var chart7 = c3.generate({
+        bindto: '#chart07',
+        data: {
+            columns: [
+                ['已反馈', chartStatics.suggestionStatics.feedbackCount]
+            ],
+            type: 'gauge',
+            onclick: function (d, i) { console.log("onclick", d, i); },
+            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        },
+        gauge: {
+            label: {
+                format: function(value, ratio) {
+                    ratio = ratio * 100
+                    ratio = ratio.toFixed(1)
+                    return ratio;
+                },
+                show: true // to turn off the min/max labels.
+            },
+//    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+        max: chartStatics.suggestionStatics.suggestionCount, // 100 is default
+        units: '%',
+//    width: 39 // for adjusting arc thickness
+        },
+        color: {
+            pattern: ['#FF0000'], // the three color levels for the percentage values.
+        },
+        size: {
+            height: 180
         }
-    }
-});
+    });
+}
 
-var chart11 = c3.generate({
-    bindto: '#chart11',
-    data: {
-        columns: [
-            ['数量', 30, 200, 100, 400, 150, 250]
-        ]
-    },
-    grid: {
-        y: {
-            lines: [{value: 100, class: 'grid800', text: '最低标准'},{value: 150, class: 'grid800', text: '平均数量'},{value: 200, class: 'grid800', text: '最高目标'}]
+
+function productStatusChart(){
+    var chart8 = c3.generate({
+        bindto: '#chart08',
+        data: {
+            columns: [
+                ['已上架', chartStatics.activeProductCount]
+            ],
+            type: 'gauge',
+        },
+        gauge: {
+            label: {
+                format: function(value, ratio) {
+                    return value;
+                },
+                show: true // to turn off the min/max labels.
+            },
+//    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+   max: chartStatics.allProductCount, // 100 is default
+//    units: ' %',
+//    width: 39 // for adjusting arc thickness
+        },
+        size: {
+            height: 180
         }
-    },
-    zoom: {
-        enabled: true
-    },
-    subchart: {
-        show: true
-    }
-});
+    });
+}
 
-var chart12 = c3.generate({
-    bindto: '#chart12',
-    data: {
-        columns: [
-            ['data1', 30],
-            ['data2', 120],
-        ],
-        type : 'donut',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    donut: {
-        title: "Iris Petal Width"
-    }
-});
+function productPriceChart(){
+    var chart09 = c3.generate({
+        bindto: '#chart09',
+        data: {
+            // iris data from R
+            columns: [
+                ['0-10元', chartStatics.productCountPriceInterval1],
+                ['10-20元', chartStatics.productCountPriceInterval2],
+                ['20-50元', chartStatics.productCountPriceInterval3],
+                ['50元以上', chartStatics.productCountPriceInterval4],
 
-var chart13 = c3.generate({
-    bindto: '#chart13',
-    data: {
-        columns: [
-            ['data1', 30],
-            ['data2', 120],
-        ],
-        type : 'donut',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    },
-    donut: {
-        title: "Iris Petal Width"
+            ],
+            type: 'pie',
+        }
+    });
+}
+
+function productCategoryChart(){
+    var chart09 = c3.generate({
+        bindto: '#chart10',
+        data: {
+            // iris data from R
+            columns: [
+                ['主食', chartStatics.mainMealCount],
+                ['甜点', chartStatics.dessertCount],
+                ['小食', chartStatics.snackCount],
+                ['炸鸡', chartStatics.friesChickenCount],
+
+            ],
+            type: 'pie',
+        }
+    });
+}
+
+function orderChart(){
+    let orderStaticsList = chartStatics.orderStaticsList
+    let orderArray = ['订单数量']
+    let dateArray = []
+    let totalCount = 0
+    for(var i = 0; i <orderStaticsList.length; i++){
+        orderArray.push(orderStaticsList[i].count)
+        dateArray.push(orderStaticsList[i].date)
+        totalCount += orderStaticsList[i].count;
     }
-});
+    let averageCount = totalCount/7;
+    averageCount.toFixed(0)
+
+    var chart11 = c3.generate({
+        bindto: '#chart11',
+        data: {
+            columns: [
+                orderArray,
+            ]
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: dateArray
+            },
+            y:{
+                max: 12,
+                min: 0,
+                padding: {top:0, bottom:0}
+            }
+        },
+        grid: {
+            y: {
+                lines: [
+                    {value: 2, text: '最低订单数量'},
+                    {value: 10, text: '目标订单数量'},
+                    {value: averageCount, text:'七天平均订单数量'}
+                ]
+            }
+        },
+        zoom: {
+            enabled: true
+        },
+        subchart: {
+            show: false
+        },
+    });
+}
+
+function fakeChart(){
+    let orderStaticsList = chartStatics.orderStaticsList
+    let dateArray = []
+    for(var i = 0; i <orderStaticsList.length; i++){
+        dateArray.push(orderStaticsList[i].date)
+    }
+    var chart11 = c3.generate({
+        bindto: '#chart12',
+        data: {
+            columns: [
+                ['当日利润','100','520','380','620','300','210','230'],
+            ]
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: dateArray
+            },
+            y:{
+                max: 1000,
+                min: 0,
+                padding: {top:0, bottom:0}
+            }
+        },
+
+        zoom: {
+            enabled: true
+        },
+        subchart: {
+            show: false
+        },
+    });
+}
+
+
+
+function orderPriceChart() {
+
+    var chart13 = c3.generate({
+        bindto: '#chart13',
+        data: {
+            columns: [
+                ['0-50元', chartStatics.orderCountInterval1],
+                ['50-100元', chartStatics.orderCountInterval2],
+                ['100-200元', chartStatics.orderCountInterval3],
+                ['200元以上', chartStatics.orderCountInterval4],
+            ],
+            type: 'donut',
+        },
+        donut: {
+            title: "订单价格"
+        }
+    });
+}

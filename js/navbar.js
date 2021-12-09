@@ -4,8 +4,12 @@ $(document).ready(function () {
         $("#user-info").html('Hi, ' + window.sessionStorage.getItem('name'))
         $("#nav-login-btn").html('登出');
     }
-    getNumberForSuggestionBox()
-    getNumberForFeedbackBox()
+    if(window.sessionStorage.getItem('employeeIsLogin') == 'tre'){
+        getNumberForSuggestionBox()
+    }
+    if(window.sessionStorage.getItem('adminIsLogin') == 'true'){
+        getNumberForFeedbackBox()
+    }
 })
 
 function getNumberForSuggestionBox(){
