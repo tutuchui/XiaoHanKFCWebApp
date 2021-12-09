@@ -106,7 +106,6 @@ function getContentBySuggestionId2(suggestionId) {
         async: false
     })
 }
-
 function updateContent(suggestionId) {
     let content = $('#content3').val(); // 10
     $.ajax({
@@ -130,3 +129,4 @@ function updateContent(suggestionId) {
         }
     })
 }
+

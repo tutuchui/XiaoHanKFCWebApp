@@ -26,7 +26,7 @@ function displayMySuggestion(customerId) {
             '<td>' + mySuggestion[i].content + '</td>' +
             '<td>'+
             '<a>' +
-            '<button class="btn-primary btn">查看反馈</button>' +
+            '<button class="btn-primary btn" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo"  onclick="getContentBySuggestionId('+ mySuggestion[i].suggestionId +')">查看反馈</button>' +
             '</a>' +
             '</td>'+
             '</tr>'
@@ -60,5 +60,20 @@ function suggest(){
         error(xhr, status, errorMessage){
             alert("发布失败")
         }
+    })
+}
+
+function getContentBySuggestionId(suggestionId) {
+    $.ajax({
+        url: "http://localhost:8080/feedback/getContentBySuggestionId?suggestionId=" + suggestionId,
+        type:"GET",
+        contentType: "application/json;charset=utf-8",
+        header:{
+            'Access-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success: function (data) {
+            $('#content2').html(data)
+        },
+        async: false
     })
 }

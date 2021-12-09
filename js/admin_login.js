@@ -35,7 +35,7 @@ function login(){
             window.sessionStorage.setItem('number', number);
             window.sessionStorage.setItem('name', data);
             window.sessionStorage.setItem('adminIsLogin', "true");
-            $(location).attr('href','/adminIndex');
+            $(location).attr('href','/data');
         },
         error: function (xhr, status, errorMessage) {
             if(xhr.status === 501){
