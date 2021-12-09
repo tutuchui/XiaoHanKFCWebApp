@@ -48,3 +48,8 @@ function suggestion()
     $(location).attr('href','../employee_html/all_suggestion');
 }
 
+function feedback()
+{
+    $(location).attr('href','../check_feedback');
+}
+

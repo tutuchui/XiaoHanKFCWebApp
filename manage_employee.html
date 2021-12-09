@@ -71,20 +71,21 @@
                 </div>
                 <div class="modal-body">
                     <form id="employee-info">
-                        <div class="mb-3"><label  class="col-form-label">员工名字: <span id="form-employee-name" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工工号: <span id="form-employee-number" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工电话: <span id="form-employee-phone" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工密码: <span id="form-employee-password" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工邮箱: <span id="form-employee-email" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工性别: <span id="form-employee-gender" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工类型: <span id="form-employee-type" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工状态: <span id="form-employee-state" style="color:red;margin-left: 10px"></span></label></div>
+                        <div class="mb-3"><label  class="col-form-label">员工名字: </label><input class="form-control" id="form-employee-name" value="haha"></div>
+                        <div class="mb-3"><label  class="col-form-label">员工工号: </label><input type="text" class="form-control" id="form-employee-number"></div>
+                        <div class="mb-3"><label  class="col-form-label">员工电话: </label><input type="text" class="form-control" id="form-employee-phone" ></div>
+                        <div class="mb-3"><label  class="col-form-label">员工密码: </label><input type="text" class="form-control" id="form-employee-password" ></div>
+                        <div class="mb-3"><label  class="col-form-label">员工邮箱: </label><input type="text" class="form-control" id="form-employee-email" ></div>
+                        <div class="mb-3"><label  class="col-form-label">员工性别: <span id="form-employee-gender" style="color:red;margin-left: 10px"></span></div>
+                        <div class="mb-3"><label  class="col-form-label">员工类型: <span id="form-employee-type" style="color:red;margin-left: 10px"></span></div>
+                        <div class="mb-3"><label  class="col-form-label">员工状态: <span id="form-employee-state" style="color:red;margin-left: 10px"></span></div>
                         <div class="mb-3"><label  class="col-form-label">员工应聘时间:<span id="form-employee-add-ime" style="color:red;margin-left: 10px"></span></label></div>
                         <div class="mb-3"><label  class="col-form-label">员工解聘时间:<span id="form-employee-fire-time" style="color:red;margin-left: 10px"></span></label></div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="updateEmployeeInfo" >修改</button>
                 </div>
             </div>
         </div>

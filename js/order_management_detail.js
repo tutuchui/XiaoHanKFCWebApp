@@ -58,12 +58,13 @@ function displayHistoryRecord(historyStatus){
 }
 
 function updateRecord() {
-    if(originalPaymentStatus == $("#paymentStatus").val() && originalOrderStatus == $("#orderStatus").val()){
+    if(originalOrderStatus == $("#orderStatus").val()){
         console.log("Unchanged");
         return;
     }
     let orderId = $("#orderId").val();
-    let paymentStatus = $("#paymentStatus").val();
+
+    let paymentStatus = originalPaymentStatus;
     let orderStatus = $("#orderStatus").val();
 
     console.log(paymentStatus);

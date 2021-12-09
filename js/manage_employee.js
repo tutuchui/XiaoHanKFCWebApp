@@ -143,6 +143,7 @@ function addEmployee() {
 }
 
 function getEmployeeById(employeeId) {
+    $('#updateEmployeeInfo').attr('onclick','updateEmployeeInfo(' + employeeId + ')')
     $.ajax({
         url: "http://localhost:8080/employee/getEmployeeById?employeeId=" + employeeId,
         type:"GET",
@@ -182,15 +183,47 @@ function getEmployeeById(employeeId) {
         },
         async: false
     })
-    $("#form-employee-name").html(EmployeeInfo.name)
-    $("#form-employee-email").html(EmployeeInfo.email)
+    $("#form-employee-name").attr('value', EmployeeInfo.name)
+    $("#form-employee-email").attr('value',EmployeeInfo.email)
     $("#form-employee-gender").html(genderMap.get(EmployeeInfo.gender))
-    $("#form-employee-number").html(EmployeeInfo.number)
-    $("#form-employee-password").html(EmployeeInfo.password)
-    $("#form-employee-phone").html(EmployeeInfo.phone)
+    $("#form-employee-number").attr('value',EmployeeInfo.number)
+    $("#form-employee-password").attr('value',EmployeeInfo.password)
+    $("#form-employee-phone").attr('value',EmployeeInfo.phone)
     $("#form-employee-state").html(stateMap.get(EmployeeInfo.state))
     $("#form-employee-type").html(typeMap.get(EmployeeInfo.type))
     $("#form-employee-add-ime").html(addTime)
     $("#form-employee-fire-time").html(fireTime)
 
+}
+
+function updateEmployeeInfo(employeeId) {
+    let employeeName = $('#form-employee-name').val();
+    let employeeEmail = $('#form-employee-email').val();
+    let employeePassword = $('#form-employee-password').val();
+    let employeeNumber = $('#form-employee-number').val();
+    let employeePhone = $('#form-employee-phone').val();
+    $.ajax({
+        url: 'http://localhost:8080/employee/updateEmployeeInfo',
+        type: "POST",
+        data:JSON.stringify({
+            employeeId: employeeId,
+            name: employeeName,
+            email: employeeEmail,
+            password: employeePassword,
+            number: employeeNumber,
+            phone: employeePhone,
+        }),
+        contentType: "application/json;charset=utf-8",
+        processData: false,
+        header:{
+            'Access-Control-Allow-Origin':'http://localhost:8080'
+        },
+        success(data) {
+            alert("修改成功")
+            location.reload();
+        },
+        error(xhr, status, errorMessage){
+            alert("修改失败")
+        }
+    })
 }

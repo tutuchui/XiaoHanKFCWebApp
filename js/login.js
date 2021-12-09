@@ -28,7 +28,7 @@ function login(){
                 window.sessionStorage.setItem('name', data.name);
                 window.sessionStorage.setItem('customerId', data.customerId);
                 window.sessionStorage.setItem('customerIsLogin', "true");
-                $(location).attr('href','/index');
+                $(location).attr('href','/customer_html/order_history');
         },
         error: function (xhr, status, errorMessage) {
             if(xhr.status === 501){
