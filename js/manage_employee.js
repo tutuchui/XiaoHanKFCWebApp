@@ -52,35 +52,19 @@ function initMap() {
 function displayEmployee() {
     var employee = Employee;
     $(".employee-information").html('');
+    let data = []
     for (i = 0; i < employee.length; i++) {
-        var employeeHtml =
-            '<tr>'+
-            '<td>'+employee[i].number +'</td>'+
-            '<td>'+employee[i].name +'</td>'+
-            '<td>'+employee[i].phone +'</td>';
-        if(employee[i].state === 0)    {
-            employeeHtml += ' <td>'+ stateMap.get(employee[i].state) +'</td>'+
-                '<td>'+
-                '<a>'+
-                '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="getEmployeeById('+employee[i].employeeId+')">查看详情</button>'+
-                '</a>'+
-                '<a>'+
-                '<button class="btn btn-danger waves-effect waves-light" style="margin-left: 10px" data-bs-toggle="modal" data-bs-target="#fireEmployeeModal" onclick="setModalName('+"'"+employee[i].number+"'"+')">炒他</button>'+
-                '</a>'+
-                '</td>'+
-                '<tr>'
+        let curRow = [employee[i].number,employee[i].name,employee[i].phone,stateMap.get(employee[i].state)]
+        if(employee[i].state == 0){
+            curRow.push('<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="getEmployeeById('+employee[i].employeeId+')">查看详情</button>'+'<button class="btn btn-danger waves-effect waves-light" style="margin-left: 10px" data-bs-toggle="modal" data-bs-target="#fireEmployeeModal" onclick="setModalName('+employee[i].number+')">炒他</button>')
         }else{
-            employeeHtml += ' <td  style="color: red">'+ stateMap.get(employee[i].state) +'</td>'+
-                '<td>'+
-                '<a>'+
-                ' <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="getEmployeeById('+employee[i].employeeId+')">查看详情</button>'+
-                ' </a>'+
-                ' </td>'+
-                '<tr>'
+            curRow.push('<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="getEmployeeById('+employee[i].employeeId+')">查看详情</button>')
         }
-
-        $(".employee-information").append(employeeHtml);
+        data.push(curRow)
     }
+    $("#employee-table").DataTable({
+        data: data
+    })
 }
 
 function setModalName(name){

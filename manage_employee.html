@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>KFC Home Page</title>
-  <!--    dependency for bootstrap 5 and jquery 3.6 -->
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src = "jquery/jquery-3.6.0.min.js"></script>
-  <script src="js/manage_employee.js"></script>
-  <script>
-    $(function(){
-      $(".hfc-nav-bar").load("common/navbarForAdmin.html");
-    });
-  </script>
+    <meta charset="UTF-8">
+    <title>KFC Home Page</title>
+    <!--    dependency for bootstrap 5 and jquery 3.6 -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="js/manage_employee.js"></script>
+    <script>
+        $(function () {
+            $(".hfc-nav-bar").load("common/navbarForAdmin.html");
+        });
+    </script>
 </head>
 
 <body>
@@ -23,45 +26,53 @@
 </div>
 <div class="side-nav">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-auto bg-light sticky-top">
-          <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
-              <a class="d-block p-3 link-dark text-decoration-none product-category" >
-                食物管理
-              </a>
-              <nav class="nav nav-pills flex-column">
-                <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="manage_product.html">查看食物</a>
-                <a class="nav-link ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category" href="upload_product.html">上传食物</a>
-              </nav>
-              <a href="manage_ingredients.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-                原料管理
-              </a>
-              <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-                员工管理
-              </a>
-              <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category" >
-                销售数据
-              </a>
-          </div>
+        <div class="row">
+            <div class="col-sm-auto bg-light sticky-top">
+                <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                    <a class="d-block p-3 link-dark text-decoration-none product-category">
+                        食物管理
+                    </a>
+                    <nav class="nav nav-pills flex-column">
+                        <a class=" ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category"
+                           href="manage_product.html">查看食物</a>
+                        <a class=" ms-3 my-1 d-block p-3 link-dark  text-decoration-none product-category"
+                           href="upload_product.html">上传食物</a>
+                    </nav>
+                    <a href="manage_ingredients.html"
+                       class="d-block p-3 link-dark text-decoration-none product-category">
+                        原料管理
+                    </a>
+                    <a href="manage_employee.html" class="d-block p-3 link-dark text-decoration-none product-category"
+                       style="color: black">
+                        员工管理
+                    </a>
+                    <a href="data.html" class="d-block p-3 link-dark text-decoration-none product-category">
+                        销售数据
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm p-3 min-vh-100">
+                <h4 style="font-size:48px">员工管理
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            data-bs-whatever="@mdo">增加新员工
+                    </button>
+                </h4>
+                <table border="1" cellpadding="10" frame="hsides" id="employee-table" style="width: 100% !important;">
+                    <thead>
+                    <tr>
+                        <th width="250">工号</th>
+                        <th width="250">员工名称</th>
+                        <th width="250">联系方式</th>
+                        <th width="250">员工状态</th>
+                        <th width="250">查看详情</th>
+                    </tr>
+                    </thead>
+                    <tbody class="employee-information">
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="col-sm p-3 min-vh-100">
-            <h4 style="font-size:48px">员工管理 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">增加新员工</button></h4>
-          <table  border="1" cellpadding="10" frame="hsides">
-            <thead>
-            <tr>
-              <th width="250">工号</th>
-              <th width="250">员工名称</th>
-              <th width="250">联系方式</th>
-              <th width="250">员工状态</th>
-              <th width="250">查看详情</th>
-            </tr>
-            </thead>
-            <tbody class="employee-information">
-            </tbody>
-          </table>
-        </div>
-      </div>
-  </div>
+    </div>
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -71,21 +82,45 @@
                 </div>
                 <div class="modal-body">
                     <form id="employee-info">
-                        <div class="mb-3"><label  class="col-form-label">员工名字: </label><input class="form-control" id="form-employee-name" value="haha"></div>
-                        <div class="mb-3"><label  class="col-form-label">员工工号: </label><input type="text" class="form-control" id="form-employee-number"></div>
-                        <div class="mb-3"><label  class="col-form-label">员工电话: </label><input type="text" class="form-control" id="form-employee-phone" ></div>
-                        <div class="mb-3"><label  class="col-form-label">员工密码: </label><input type="text" class="form-control" id="form-employee-password" ></div>
-                        <div class="mb-3"><label  class="col-form-label">员工邮箱: </label><input type="text" class="form-control" id="form-employee-email" ></div>
-                        <div class="mb-3"><label  class="col-form-label">员工性别: <span id="form-employee-gender" style="color:red;margin-left: 10px"></span></div>
-                        <div class="mb-3"><label  class="col-form-label">员工类型: <span id="form-employee-type" style="color:red;margin-left: 10px"></span></div>
-                        <div class="mb-3"><label  class="col-form-label">员工状态: <span id="form-employee-state" style="color:red;margin-left: 10px"></span></div>
-                        <div class="mb-3"><label  class="col-form-label">员工应聘时间:<span id="form-employee-add-ime" style="color:red;margin-left: 10px"></span></label></div>
-                        <div class="mb-3"><label  class="col-form-label">员工解聘时间:<span id="form-employee-fire-time" style="color:red;margin-left: 10px"></span></label></div>
+                        <div class="mb-3"><label class="col-form-label">员工名字: </label><input class="form-control"
+                                                                                             id="form-employee-name"
+                                                                                             value="haha"></div>
+                        <div class="mb-3"><label class="col-form-label">员工工号: </label><input type="text"
+                                                                                             class="form-control"
+                                                                                             id="form-employee-number">
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工电话: </label><input type="text"
+                                                                                             class="form-control"
+                                                                                             id="form-employee-phone">
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工密码: </label><input type="text"
+                                                                                             class="form-control"
+                                                                                             id="form-employee-password">
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工邮箱: </label><input type="text"
+                                                                                             class="form-control"
+                                                                                             id="form-employee-email">
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工性别: <span id="form-employee-gender"
+                                                                                    style="color:red;margin-left: 10px"></span>
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工类型: <span id="form-employee-type"
+                                                                                    style="color:red;margin-left: 10px"></span>
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工状态: <span id="form-employee-state"
+                                                                                    style="color:red;margin-left: 10px"></span>
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工应聘时间:<span id="form-employee-add-ime"
+                                                                                     style="color:red;margin-left: 10px"></span></label>
+                        </div>
+                        <div class="mb-3"><label class="col-form-label">员工解聘时间:<span id="form-employee-fire-time"
+                                                                                     style="color:red;margin-left: 10px"></span></label>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="updateEmployeeInfo" >修改</button>
+                    <button type="button" class="btn btn-primary" id="updateEmployeeInfo">修改</button>
                 </div>
             </div>
         </div>
@@ -100,23 +135,23 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label  class="col-form-label">员工工号:</label>
+                            <label class="col-form-label">员工工号:</label>
                             <input type="text" class="form-control" id="employeeNumber" placeholder="用于员工登录">
                         </div>
                         <div class="mb-3">
-                            <label  class="col-form-label">员工姓名:</label>
+                            <label class="col-form-label">员工姓名:</label>
                             <input type="text" class="form-control" id="employeeName" placeholder="请输入员工真实姓名">
                         </div>
                         <div class="mb-3">
-                            <label  class="col-form-label">员工电话:</label>
+                            <label class="col-form-label">员工电话:</label>
                             <input type="text" class="form-control" id="employeePhone" placeholder="请输入员工电话">
                         </div>
                         <div class="mb-3">
-                            <label  class="col-form-label">员工密码:</label>
+                            <label class="col-form-label">员工密码:</label>
                             <input type="password" class="form-control" id="employeePassword" placeholder="请输入员工密码">
                         </div>
                         <div class="mb-3">
-                            <label  class="col-form-label">员工邮箱:</label>
+                            <label class="col-form-label">员工邮箱:</label>
                             <input type="email" class="form-control" id="employeeEmail" placeholder="请输入员工邮箱">
                         </div>
                         <div class="mb-3">
@@ -147,7 +182,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="fireEmployeeModal" tabindex="-1" aria-labelledby="fireEmployeeModalLabel" aria-hidden="true">
+    <div class="modal fade" id="fireEmployeeModal" tabindex="-1" aria-labelledby="fireEmployeeModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

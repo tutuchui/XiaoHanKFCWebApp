@@ -1,12 +1,14 @@
 var Product = [];
 var productCountMap = new Map();
 let stateMap = new Map();
+let foodCategoryMap = new Map()
 
 $(document).ready(function () {
     if (window.sessionStorage.getItem('adminIsLogin') !== 'true') {
         $(location).attr('href', '/adminLogin');
     }
     initMap()
+
     $.ajax({
         url: "http://localhost:8080/product/getAllProducts",
         type: "GET",
@@ -20,7 +22,18 @@ $(document).ready(function () {
         async: false
     })
     displayProduct();
+
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+
+    var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
+        container: 'body'
+    })
 })
+
+
 
 function prepareProducts(productList) {
     for (let i = 0; i < productList.length; i++) {
@@ -33,17 +46,33 @@ function initMap() {
     stateMap.set(0, '下架');
     stateMap.set(1, '上架');
 
+    foodCategoryMap.set('mainMeal','主食')
+    foodCategoryMap.set('dessert','甜点')
+    foodCategoryMap.set('snacks','小吃')
+    foodCategoryMap.set('friesChicken','炸鸡')
+
 }
 
 function displayProduct() {
     var product = Product;
+    let data = []
     for (i = 0; i < product.length; i++) {
         let index = i + 1;
+        let introduction = product[i].introduction
+        if(introduction.length > 10){
+            introduction = introduction.substring(0,10) + '......'
+        }
+        let introductionHtml = '<p data-bs-trigger="hover" data-bs-toggle="popover"  data-bs-container="body"  data-bs-placement="top" data-bs-content="' + product[i].introduction + '">' + introduction + ' </p>'
+
+
+        let curRow = [index, product[i].name ,product[i].price, foodCategoryMap.get(product[i].category) , introductionHtml, product[i].remainCount, stateMap.get(product[i].state)]
+        curRow.push('<button class="btn btn-primary" onclick=checkDetail(' + JSON.stringify(product[i]) + ')>查看详情</button>' + '<button class="btn btn-danger"  style="margin-left: 5px" data-bs-toggle="modal" data-bs-target="#makeProductModal" onclick="displayIngredientsForProduct(' + product[i].productId + ')">生产</button>')
+        data.push(curRow)
         let tbodyHtml = '<tr>' +
             '<th scope="row">' + index + '</th>' +
             '<td>' + product[i].name + '</td>' +
             '<td>' + product[i].price + '</td>' +
-            '<td>' + product[i].category + '</td>' +
+            '<td>' + foodCategoryMap.get(product[i].category) + '</td>' +
             '<td>' + product[i].introduction + '</td>' +
             '<td>' + product[i].remainCount + '</td>' +
             '<td>' + stateMap.get(product[i].state) + ' </td>' +
@@ -58,6 +87,10 @@ function displayProduct() {
             '</tr>'
         $("#product-table tbody").append(tbodyHtml);
     }
+    $("#product-table").DataTable({
+        data: data
+    })
+
 }
 
 function makeProduct(productId) {

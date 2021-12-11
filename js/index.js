@@ -35,7 +35,7 @@ function prepareProducts(productList) {
             mainMealProduct.push(productList[i]);
         }else if(productList[i].category === "dessert"){
             dessertProduct.push(productList[i]);
-        }else if(productList[i].category === "snakes"){
+        }else if(productList[i].category === "snacks"){
             snakesProduct.push(productList[i]);
         }else if(productList[i].category === "friesChicken"){
             friesChicken.push(productList[i]);
@@ -119,29 +119,54 @@ function submitOrder() {
 
 
 function displayProduct(category) {
-    var product = mainMealProduct;
+    var product = [];
     if(category === 'main'){
          product = mainMealProduct;
+         $("#mainMealBtn").css('color','black')
+        $("#friesChickenBtn").css('color','')
+        $("#snacksBtn").css('color','')
+        $("#dessertBtn").css('color','')
     }else if(category === 'dessert'){
         product = dessertProduct;
-    }else if(category === 'snakes'){
+        $("#dessertBtn").css('color','black')
+        $("#mainMealBtn").css('color','')
+        $("#snacksBtn").css('color','')
+        $("#friesChickenBtn").css('color','')
+
+    }else if(category === 'snacks'){
         product = snakesProduct;
+        $("#snacksBtn").css('color','black')
+        $("#dessertBtn").css('color','')
+        $("#mainMealBtn").css('color','')
+        $("#friesChickenBtn").css('color','')
     }else if (category === 'friesChicken'){
         product = friesChicken;
+        $("#friesChickenBtn").css('color','black')
+        $("#mainMealBtn").css('color','')
+        $("#snacksBtn").css('color','')
+        $("#dessertBtn").css('color','')
     }
     $(".main-product-container").html('');
     for (i = 0; i < product.length; i++) {
         var productHtml =
-            '<div class="col card me-3" style="width: 18rem;">' +
+            '<div class="col card me-3" style="width: 18rem; margin-top: 10px">' +
                 '<img src="http://localhost:8080/' + product[i].imageUrl + '" class="card-img-top hfc-card-image">' +
                 '<div class="card-body">' +
                     '<h5 class="card-title">' + product[i].name + '</h5>' +
                     '<p class="card-text">' + product[i].introduction + '</p>' +
-                    "<button class='btn btn-danger' onclick='addProduct(this, " + JSON.stringify(product[i]) + ")' value= product" +product[i].productId + "><i class='bi bi-plus'></i></button>" +
-                    '&nbsp;<span id=' + 'product' + product[i].productId + '-count' + '>'+ productCountMap.get('product' + product[i].productId) + '</span>&nbsp;' +
-                    "<button class='btn btn-secondary' onclick='minusProduct(this, " + JSON.stringify(product[i]) + ")' value= product" +product[i].productId + "><i class='bi bi-dash'></i></button>" +
+                    '<div class="row bottom-content justify-content-around">' +
+                        '<div class="col count-btn-group">' +
+                            "<button class='btn btn-danger' onclick='addProduct(this, " + JSON.stringify(product[i]) + ")' value= product" +product[i].productId + "><i class='bi bi-plus'></i></button>" +
+                            '&nbsp;<span id=' + 'product' + product[i].productId + '-count' + '>'+ productCountMap.get('product' + product[i].productId) + '</span>&nbsp;' +
+                            "<button class='btn btn-secondary' onclick='minusProduct(this, " + JSON.stringify(product[i]) + ")' value= product" +product[i].productId + "><i class='bi bi-dash'></i></button>" +
+                        '</div>' +
+                        '<div class="col-3">' +
+                            '<p class="product-price">¥' + product[i].price + '</p>' +
+                        '</div>' +
+                '   </div>' +
                 '</div>' +
             '</div>'
         $(".main-product-container").append(productHtml);
+
     }
 }

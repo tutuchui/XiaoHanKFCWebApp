@@ -42,32 +42,7 @@ function displaySuggestion() {
             curRow.push('<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3" data-bs-whatever="@mdo" >查看详情</button>')
         }
         data.push(curRow)
-        // var suggestionHtml =
-        //     '<tr>'+
-        //     ' <td>'+suggestion[i].suggestionId +' </td>'+
-        //     ' <td>'+suggestion[i].customerName +' </td>'+
-        //     ' <td>'+suggestion[i].phone +'</td>'+
-        //     ' <td>'+suggestion[i].suggestTime +'</td>'+
-        //     ' <td>'+suggestion[i].content +'</td>'
-        // if(suggestion[i].state === 0){
-        //     suggestionHtml += ' <td style="color: red">'+ '待审核' +'</td>' +
-        //         '<td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo" >查看详情</button></td>'
-        // }else if(suggestion[i].state === 1)
-        // {
-        //     suggestionHtml += ' <td>'+ '审核通过' +'</td>' +
-        //         '<td><button class="btn  btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">查看详情</button></td>'
-        // }else if(suggestion[i].state === 2)
-        // {
-        //     suggestionHtml += ' <td>'+ '审核不通过' +'</td>' +
-        //         '<td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3" data-bs-whatever="@mdo">查看详情</button></td>'
-        // }else
-        // {
-        //     suggestionHtml += ' <td>'+ '没有员工进行反馈' +'</td>' +
-        //         '<td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" >查看详情</button></td>'
-        // }
-        // suggestionHtml +='<tr>'
-        //
-        // $(".suggestion-information").append(suggestionHtml);
+
     }
     $("#feedback-table").DataTable({
         data: data

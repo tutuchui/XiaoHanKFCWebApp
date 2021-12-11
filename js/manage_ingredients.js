@@ -22,25 +22,34 @@ function getAllIngredientsForSelect() {
 
 function displayIngredients() {
     $(".ingredients-information").html('');
-    for (i = 0; i < ingredientsList.length; i++) {
+    let data = []
+    for (var i = 0; i < ingredientsList.length; i++) {
         let ingredientsInfo = ingredientsList[i]
-        var ingredientsHtml =
-            '<tr>'+
-            '<td>'+ ingredientsList[i].name +'</td>'+
-            '<td>'+ ingredientsList[i].merchant +'</td>'+
-            '<td>'+ ingredientsList[i].category +'</td>'+
-            '<td>'+ ingredientsList[i].introduction +'</td>'+
-            '<td>'+ ingredientsList[i].price +'</td>'+
-            '<td>'+ ingredientsList[i].number +'</td>'+
-            '<td>' +
-            '<div>' +
-            '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#purchaseIngredientModal" onclick="loadPurchaseInfo(' + ingredientsInfo.ingredientsId + ',' + ingredientsInfo.price  + ')">购买</button>' +
-            '<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="margin-left: 10px" onclick="getPurchaseIngredientsRecordById('+ingredientsList[i].ingredientsId+')">购买详情</button>' +
-            '</div>' +
-            '</td>'+
-            '<tr>'
-        $(".ingredients-information").append(ingredientsHtml);
+        let curRow = [ingredientsList[i].name,ingredientsList[i].merchant,ingredientsList[i].category,ingredientsList[i].introduction,ingredientsList[i].price,ingredientsList[i].number]
+        curRow.push('<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#purchaseIngredientModal" onclick="loadPurchaseInfo(' + ingredientsInfo.ingredientsId + ',' + ingredientsInfo.price  + ')">购买</button>' + '<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="margin-left: 10px" onclick="getPurchaseIngredientsRecordById('+ingredientsList[i].ingredientsId+')">购买详情</button>')
+        // var ingredientsHtml =
+        //     '<tr>'+
+        //     '<td>'+ ingredientsList[i].name +'</td>'+
+        //     '<td>'+ ingredientsList[i].merchant +'</td>'+
+        //     '<td>'+ ingredientsList[i].category +'</td>'+
+        //     '<td>'+ ingredientsList[i].introduction +'</td>'+
+        //     '<td>'+ ingredientsList[i].price +'</td>'+
+        //     '<td>'+ ingredientsList[i].number +'</td>'+
+        //     '<td>' +
+        //     '<div>' +
+        //     '<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#purchaseIngredientModal" onclick="loadPurchaseInfo(' + ingredientsInfo.ingredientsId + ',' + ingredientsInfo.price  + ')">购买</button>' +
+        //     '<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal1" style="margin-left: 10px" onclick="getPurchaseIngredientsRecordById('+ingredientsList[i].ingredientsId+')">购买详情</button>' +
+        //     '</div>' +
+        //     '</td>'+
+        //     '<tr>'
+        // $(".ingredients-information").append(ingredientsHtml);
+        data.push(curRow)
     }
+    console.log(data)
+    $("#ingredients-table").DataTable({
+        data: data
+    })
+
 }
 function loadPurchaseInfo(id, price){
     $("#purchasePrice").attr('value', price)
